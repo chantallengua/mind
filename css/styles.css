@@ -169,7 +169,13 @@ h6, .h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; 
+}
+
+.pillole p {
+	margin-bottom: 0.5rem; 
+	text-indent: 1em;
+	text-align: justify;
 }
 
 abbr[title] {
@@ -11226,6 +11232,11 @@ body {
     border-radius: .25rem;
 }
 
+/* Per far funzionare hover cell
+.nav-item:hover .dropdown-menu {
+    display: block;
+  }
+  */
 
 .dropdown-item {
     display: block;
@@ -11247,3 +11258,22 @@ body {
   border-top: 1px solid white;
   opacity: 0.6; /* opzionale per un effetto più soft */
 }
+
+  @media (min-width: 992px) {
+    .img-wrap-float {
+      float: right;
+      width: 300px;
+      margin-left: 2.5em;
+      margin-bottom: 1em;
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    .img-wrap-float {
+      display: block;
+      float: none;
+      margin: 0 auto 20px;
+      width: 100%;
+      max-width: 100%;
+    }
+  }
