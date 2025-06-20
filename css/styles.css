@@ -11209,14 +11209,13 @@ body {
 
 .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: 80% !important;
     left: 0;
     z-index: 1000;
-    display: none;
     float: left;
-    min-width: 10rem;
+    min-width: 8rem;
     padding: .5rem 0;
-    margin: 0.7rem 0 0;
+    margin: 1rem;
     font-size: 1rem;
     color: black;
     text-align: left;
@@ -11227,12 +11226,14 @@ body {
     border-radius: .25rem;
 }
 
+
 .dropdown-item {
     display: block;
     width: 100%;
     padding: .25rem 1.5rem;
     clear: both;
-    font-weight: 400;
+    font-weight: 200;
+	font-size: 0.8em;
     color: white;
     text-align: inherit;
     white-space: nowrap;
@@ -11241,3 +11242,8 @@ body {
 }
 
 .dropdown-toggle::after {margin-left: 0 !important;}
+
+.dropdown-divider {
+  border-top: 1px solid white;
+  opacity: 0.6; /* opzionale per un effetto più soft */
+}
