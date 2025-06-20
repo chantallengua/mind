@@ -89,19 +89,12 @@ h1 {
     background-size: 0.5em 0.5em;   
     font: 400 1.8em/1.25;
     text-transform: uppercase;
-    margin: 0 0 4em 0;
+    
     padding: 1em 0;
     position: relative;
     text-align: center;
 }
 
-.open-book .chapter-title:before {
-    left: 0;
-}
-
-.open-book .chapter-title:after {
-    right: 0;
-}
 
 .open-book .about-title {
     background-size: 0.5em 0.5em;   
