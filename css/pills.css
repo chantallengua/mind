@@ -121,7 +121,7 @@ form {
 
 .pag {
   position:relative;
-  color: #fff;
+  color: black;
   padding: 15px 30px;
   font-size: 11pt;
   letter-spacing:1px;
@@ -260,7 +260,7 @@ footer input[type="image"] {
 
 .pag {
   position:relative;
-  color: #fff;
+  color: black;
   padding: 15px 30px;
   font-size: 11pt;
   letter-spacing:1px;
@@ -402,7 +402,7 @@ footer input[type="image"] {
 
 .pag {
   position:relative;
-  color: #fff;
+  color: black;
   padding: 15px 30px;
   font-size: 11pt;
   letter-spacing:1px;
@@ -491,79 +491,79 @@ footer input[type="image"] {
 }
 
 .cover1 {
-  background-image: url('img/1.jpg');
+  background-image: url('../assets/img/1.jpg');
 }
 
 .cover2 {
-  background-image: url('img/2.jpg');
+  background-image: url('../assets/img/2.jpg');
 }
 
 .cover3 {
-  background-image: url('img/2.jpg');
+  background-image: url('../assets/img/placeholder.jpg');
 }
 
 .cover4 {
-  background-image: url('img/2.jpg');
+  background-image: url('../assets/img/placeholder.jpg');
 }
 
 .cover5 {
-  background-image: url('img/2.jpg');
+  background-image: url('../assets/img/placeholder.jpg');
 }
 
 .cover6 {
-  background-image: url('img/2.jpg');
+  background-image: url('../assets/img/placeholder.jpg');
 }
 
 .cover7 {
-  background-image: url('img/2.jpg');
+  background-image: url('../assets/img/placeholder.jpg');
 }
 
 .cover8 {
-  background-image: url('img/2.jpg');
+  background-image: url('../assets/img/placeholder.jpg');
 }
 
 .cover9 {
-  background-image: url('img/2.jpg');
+  background-image: url('../assets/img/placeholder.jpg');
 }
 
 .cover10 {
-  background-image: url('img/2.jpg');
+  background-image: url('../assets/img/placeholder.jpg');
 }
 
 .cover11 {
-  background-image: url('img/2.jpg');
+  background-image: url('../assets/img/placeholder.jpg');
 }
 
 .cover12 {
-  background-image: url('img/2.jpg');
+  background-image: url('../assets/img/placeholder.jpg');
 }
 
 .cover13 {
-  background-image: url('img/2.jpg');
+  background-image: url('../assets/img/placeholder.jpg');
 }
 
 .cover14 {
-  background-image: url('img/2.jpg');
+  background-image: url('../assets/img/placeholder.jpg');
 }
 
 .cover15 {
-  background-image: url('img/2.jpg');
+  background-image: url('../assets/img/placeholder.jpg');
 }
 
 .cover16 {
-  background-image: url('img/2.jpg');
+  background-image: url('../assets/img/placeholder.jpg');
 }
 
 .cover17 {
-  background-image: url('img/2.jpg');
+  background-image: url('../assets/img/placeholder.jpg');
 }
 
 .cover18 {
-  background-image: url('img/2.jpg');
+  background-image: url('../assets/img/placeholder.jpg');
 }
 
 .cover19 {
-  background-image: url('img/2.jpg');
+  background-image: url('../assets/img/placeholder.jpg');
 }
 
 

@@ -11128,6 +11128,11 @@ body {
 .projects-section {
   padding: 10rem 0;
 }
+
+.projects-section-pillole {
+	padding: 10rem 0 5rem 0 !important;
+}
+
 .projects-section .featured-text {
   padding: 2rem;
 }
