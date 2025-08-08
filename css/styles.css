@@ -172,11 +172,7 @@ p {
   margin-bottom: 1rem; 
 }
 
-.pillole p {
-	margin-bottom: 0.5rem; 
-	text-indent: 1em;
-	text-align: justify;
-}
+
 
 abbr[title] {
   -webkit-text-decoration: underline dotted;
@@ -11144,14 +11140,14 @@ body {
   padding: 2rem;
 }
 @media (min-width: 992px) {
-  .projects-section .featured-text {
+  .projects-section:first-of-type .featured-text {
     padding: 0 0 0 2rem;
     border-left: 0.5rem solid #64a19d;
   }
   
-    .projects-section .featured-text .leggi-successivo {
+   .projects-section:last-of-type .featured-text {
     padding: 0;
-    border-left: 0.5rem solid red !important;
+    border-left: 0.5rem solid white !important;
   }
   
 
@@ -11286,6 +11282,10 @@ body {
  */
    }
 
+.pillole h2 {
+	color: #64a19d;
+}
+
   @media (max-width: 991.98px) {
 .dropdown-menu {    
 	position: absolute;
@@ -11340,8 +11340,21 @@ body {
 }
 
 /* sezione testo schermo piccolo per ogni pagina di pillola */
-.projects-section-pillola {
-	padding: 0 !important;
+.leggi-successivo {
+	margin: 0;
+	padding: 0;
+}
+
+.pillole p {
+	margin-bottom: 0.5rem; 
+	text-indent: 1em;
+	text-align: justify;
+	font-size: calc(1.375rem - 1.3vw);
+}
+
+.projects-section-pillole {
+	padding: 0em !important;
+	margin-top: 2em !important;
 }
 
 /*    
