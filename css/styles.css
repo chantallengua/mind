@@ -11140,18 +11140,6 @@ body {
   margin-bottom: 5rem;
 }
 
-.projects-section {
-  padding: 10rem 0;
-}
-
-.projects-section-pillole {
-	padding: 10rem 0 5rem 0 !important;
-}
-
-.projects-section-pillola {
-	padding: 5rem 0 5rem 0 !important;
-}
-
 .projects-section .featured-text {
   padding: 2rem;
 }
@@ -11160,7 +11148,15 @@ body {
     padding: 0 0 0 2rem;
     border-left: 0.5rem solid #64a19d;
   }
+  
+    .projects-section .featured-text .leggi-successivo {
+    padding: 0;
+    border-left: 0.5rem solid red !important;
+  }
+  
+
 }
+
 .projects-section .project-text {
   padding: 3rem;
   font-size: 90%;
@@ -11299,7 +11295,7 @@ body {
     float: left;
     min-width: 8rem;
 	padding: .5rem 0;
-    margin: 0;
+    margin: 0 0 0 1em;
     font-size: 1rem;
     color: black;
     text-align: left;
@@ -11309,10 +11305,15 @@ body {
     border: white;
 }	
 	
+.nav-link {
+	margin: 0 0 0 2em;
+}	
+	
 .dropdown-item {
     display: block;
     width: 100%;
     padding: .25rem 1.5rem;
+	margin: 0 0 0 1em;
     clear: both;
     font-weight: 200;
 	font-size: 0.9em;
@@ -11323,6 +11324,13 @@ body {
     border: 0;
 }
 
+.nav-link.active {
+    text-decoration: underline; 
+	text-decoration-color: grey;
+}
+
+
+
 #mainNav .navbar-brand {
     color: #595959;
 }
@@ -11330,6 +11338,12 @@ body {
 #mainNav .navbar-brand:hover {
   color: black;
 }
+
+/* sezione testo schermo piccolo per ogni pagina di pillola */
+.projects-section-pillola {
+	padding: 0 !important;
+}
+
 /*    
 	.img-wrap-float {
       display: block;
@@ -11340,3 +11354,4 @@ body {
     }
   */
    }
+   
