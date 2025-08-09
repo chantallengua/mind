@@ -11401,3 +11401,7 @@ body {
   */
    }
    
+
+    .list-group-item-simili {
+        border-radius: 0 !important; /* forza la rimozione degli angoli arrotondati */
+    }
