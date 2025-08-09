@@ -11401,7 +11401,23 @@ body {
   */
    }
    
+html, body {  overflow-x: hidden;}
 
-    .list-group-item-simili {
-        border-radius: 0 !important; /* forza la rimozione degli angoli arrotondati */
-    }
+.sidebar-column .card-img-top {
+  width: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  height: 160px;  /* default desktop */
+}
+
+@media (max-width: 768px) {
+  .sidebar-column .card-img-top {
+    height: 120px;  /* schermi medi */
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar-column .card-img-top {
+    height: 90px;   /* schermi piccoli */
+  }
+}
