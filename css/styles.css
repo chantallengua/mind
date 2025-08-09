@@ -3772,7 +3772,7 @@ textarea.form-control-lg {
 .nav-pills .show > .nav-link {
   color: var(--bs-nav-pills-link-active-color);
   background-color: var(--bs-nav-pills-link-active-bg);
-}
+  }
 
 .nav-fill > .nav-link,
 .nav-fill .nav-item {
@@ -3928,6 +3928,10 @@ textarea.form-control-lg {
 .navbar-nav-scroll {
   max-height: var(--bs-scroll-height, 75vh);
   overflow-y: auto;
+}
+
+.nav-link.active {
+text-decoration: underline;
 }
 
 @media (min-width: 576px) {
@@ -11097,7 +11101,8 @@ body {
   font-size: 2.5rem;
   line-height: 2.5rem;
   letter-spacing: 0.8rem;
-  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+  /* ex: background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0)); */
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3));
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
           background-clip: text;
@@ -11285,6 +11290,11 @@ body {
 .pillole h2 {
 	color: #64a19d;
 }
+.pill-date {
+	color: grey;
+	font-style: italic;	
+	margin-bottom: 3rem;
+}
 
   @media (max-width: 991.98px) {
 .dropdown-menu {    
@@ -11329,8 +11339,6 @@ body {
 	text-decoration-color: grey;
 }
 
-
-
 #mainNav .navbar-brand {
     color: #595959;
 }
@@ -11355,6 +11363,12 @@ body {
 .projects-section-pillole {
 	padding: 0em !important;
 	margin-top: 2em !important;
+}
+
+.pill-date {
+	font-size: calc(1.375rem - 1.3vw);
+	margin-bottom: 2.5rem !important;
+	text-indent: 0 !important;
 }
 
 /*    
