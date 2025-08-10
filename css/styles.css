@@ -11403,6 +11403,36 @@ body {
    
 html, body {  overflow-x: hidden;}
 
+.first-bib {
+  margin-top: 1.5em;
+}
+
+.bib {
+	font-size: 0.8rem;   
+	color: #668284;
+	margin-bottom: 0.7em;
+}
+
+.pills-quote {
+margin-left: 2em; 
+border-left: 4px solid #7b9ea8; 
+padding-left: 1em; 
+color: #668284; 
+font-style: italic; 
+font-size: 0.9rem; 
+line-height: 1.5;
+}
+
+.pills-quote p {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+sup a {
+  color: #4b7982;
+  text-decoration: underline;
+}
+
 .sidebar-column .card-img-top {
   width: 100%;
   object-fit: cover;
