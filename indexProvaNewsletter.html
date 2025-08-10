@@ -197,58 +197,24 @@
         </section>
 		
 		
-		<section class="signup-section" id="signup">
+        <section class="signup-section" id="signup">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-md-10 col-lg-8 mx-auto text-center">
                         <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+                        <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
+                         
+                            <div class="row input-group-newsletter">
+                                                   <div class="text-center">
                         
-						<h2>Iscriviti con la tua email</h2>
-
-<form id="emailForm">
-  <input type="email" id="emailInput" placeholder="Inserisci la tua email" required />
-  <button type="submit">Invia</button>
-</form>
-
-<p id="msg"></p>
-
-<script>
-  const form = document.getElementById('emailForm');
-  const msg = document.getElementById('msg');
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const email = document.getElementById('emailInput').value.trim();
-    if (!email) {
-      msg.textContent = 'Inserisci un indirizzo email valido.';
-      return;
-    }
-
-    fetch('https://script.google.com/macros/s/AKfycbz3Y4__SBcWuJ2grkLw38bNMhfSPRxxXsmYVRwmC1wD_nUZoGlIUo0GeGno5ktnF0q4/exec', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email })
-    })
-    .then(res => res.json())
-    .then(data => {
-      if(data.result === 'success') {
-        msg.textContent = 'Grazie per esserti iscritto!';
-        form.reset();
-      } else {
-        msg.textContent = 'Errore durante l\'invio, riprova.';
-      }
-    })
-    .catch(() => {
-      msg.textContent = 'Errore di rete, riprova.';
-    });
-  });
-</script>
-
+                        <a class="btn btn-primary" target="" href="https://docs.google.com/forms/d/1CGUuSgdMnlBLum2x8tRceSzSD08tmcW_hbZpV0q_zhI/edit">Get Started</a>
+                    </div>
+                                <div class="col-auto">
+								 
                     </div>
                 </div>
             </div>
         </section>
-		
 		
         <!-- Contact-->
         <section class="contact-section bg-black">
