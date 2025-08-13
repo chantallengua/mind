@@ -6,7 +6,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Mindfulness for Traders</title>
-		<link rel='icon' href='../assets/img/logo.ico'/>
+		<link rel='icon' href='assets/img/logo.ico'/>
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -111,6 +111,9 @@
 		
 		
 
+  <div style="text-align: right; margin: 1em;">
+  <button id="toggleViewBtn" class="btn btn-secondary">📄 Elenco alfabetico</button>
+</div>
   
 <div id="big-container">
 
@@ -118,7 +121,7 @@
 <div style="background-color: #f8f9fa;">
 <div class="container-fluid container-row" >
 
-  <div class="book">
+  <div class="book" data-tags="mindfulness,pratica">
     <a href="pillole/osservare.html">
       <div class="title"><p> </p></div>
       <div class="book-cover cover1">
@@ -127,11 +130,11 @@
       </div>
       <div class="book-inside">
       </div>
-     <p class="pag">Osservare il respiro senza controllarlo</p>
+     <p class="pag">Mindfulness, Pratica</p>
      </a>
     </div> 
 	
-  <div class="book">
+  <div class="book" data-tags="postura">
     <a href="pillole/attenzione.html">
       <div class="title"><p> </p></div>
       <div class="book-cover cover2">
@@ -140,11 +143,11 @@
       </div>
       <div class="book-inside">
       </div>
-     <p class="pag">Sei tu a usare l’attenzione o è l’attenzione che usa te?</p>
+     <p class="pag">Postura</p>
      </a>
     </div>
 
-<div class="book">
+<div class="book" data-tags="mindfulness,storie">
 <a href="racconti/quinta.html">
   <div class="title">
     <p> </p>
@@ -155,11 +158,11 @@
   </div>
   <div class="book-inside">
   </div>
- <p class="pag">Titolo</p>
+ <p class="pag">Mindfulness, Storie</p>
 </a>
 </div>
 
-<div class="book">
+<div class="book" data-tags="storie">
 <a href="racconti/nike.html">
   <div class="title"><p> </p></div>
   <div class="book-cover cover4">
@@ -168,7 +171,7 @@
   </div>
   <div class="book-inside">
   </div>
- <p class="pag">Titolo</p>
+ <p class="pag">Storie</p>
  </a>
 </div>
 
@@ -178,7 +181,7 @@
 
 <!-- Fila -->
 <div class="container-fluid container-row">
-<div class="book">
+<div class="book" data-tags="pratica">
 <a href="racconti/baratro.html">
   <div class="title"><p> </p></div>
   <div class="book-cover cover5">
@@ -187,11 +190,11 @@
   </div>
   <div class="book-inside">
   </div>
- <p class="pag">Titolo</p>
+ <p class="pag">Pratica</p>
 </a> 
 </div>
 
-<div class="book">
+<div class="book" data-tags="storie, pratica">
 <a href="racconti/busserai.html">
   <div class="title">
     <p> </p>
@@ -202,11 +205,11 @@
   </div>
   <div class="book-inside">
   </div>
- <p class="pag">Titolo</p>
+ <p class="pag">Storie, Pratica</p>
 </a>
 </div>
 
-<div class="book">
+<div class="book" data-tags="mindfulness">
 <a href="racconti/incenso.html">
   <div class="title">
     <p> </p>
@@ -217,7 +220,7 @@
   </div>
   <div class="book-inside">
   </div>
- <p class="pag">Titolo</p>
+ <p class="pag">mindfulness</p>
 </a>
 </div>
 
@@ -427,6 +430,116 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+		
+<script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('toggleViewBtn');
+  const container = document.getElementById('big-container'); // FIX: uso il contenitore giusto
+  if (!toggleBtn || !container) return;
+
+  const originalHTML = container.innerHTML;
+  let isListView = false;
+
+  const preferredOrder = ["mindfulness", "pratica", "postura", "storie"];
+
+  function fadeOut(el, cb) {
+    el.style.opacity = 1;
+    el.style.transition = "opacity 0.3s ease";
+    requestAnimationFrame(() => {
+      el.style.opacity = 0;
+      setTimeout(cb, 300);
+    });
+  }
+  function fadeIn(el) {
+    el.style.opacity = 0;
+    el.style.transition = "opacity 0.3s ease";
+    requestAnimationFrame(() => { el.style.opacity = 1; });
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    fadeOut(container, () => {
+      if (!isListView) {
+        // COSTRUISCO LA LISTA PER TAG
+        const books = Array.from(container.querySelectorAll('.book'));
+        const grouped = new Map();
+
+        books.forEach(book => {
+          const link = book.querySelector('a')?.getAttribute('href');
+          const title = book.querySelector('.pag')?.textContent.trim();
+          if (!link || !title) return;
+
+          const tags = (book.dataset.tags || "")
+            .split(',')
+            .map(t => t.trim().toLowerCase())
+            .filter(Boolean); // elimina vuoti
+
+          if (tags.length === 0) {
+            const k = 'altri';
+            if (!grouped.has(k)) grouped.set(k, []);
+            grouped.get(k).push({ title, link });
+          } else {
+            tags.forEach(tag => {
+              if (!grouped.has(tag)) grouped.set(tag, []);
+              grouped.get(tag).push({ title, link });
+            });
+          }
+        });
+
+        // Ordine tag: prima i preferiti presenti, poi gli altri in ordine alfabetico
+        const allTags = Array.from(grouped.keys());
+        const extras = allTags.filter(t => !preferredOrder.includes(t)).sort((a,b) => a.localeCompare(b, 'it'));
+        const order = preferredOrder.filter(t => grouped.has(t)).concat(extras);
+
+        let html = `<div class="list-view-container" style="max-width:700px;margin:auto;">`;
+        order.forEach(tag => {
+          const items = grouped.get(tag).sort((a,b) => a.title.localeCompare(b.title, 'it', {sensitivity:'base'}));
+          const niceTag = tag.charAt(0).toUpperCase() + tag.slice(1);
+          html += `<h3 style="margin-top:1em;">${niceTag}</h3><ul class="list-group">`;
+          items.forEach((item, i) => {
+            html += `
+              <li class="list-group-item"
+                  style="opacity:0;transform:translateY(10px);
+                         animation:fadeInUp .3s ease forwards;
+                         animation-delay:${i * 0.1}s;">
+                <a href="${item.link}">${item.title}</a>
+              </li>`;
+          });
+          html += `</ul>`;
+        });
+        html += `</div>
+          <style>
+            @keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
+            .list-view-container .list-group-item a { text-decoration:none; }
+            .list-view-container .list-group-item a:hover { text-decoration:underline; }
+          </style>`;
+
+        container.innerHTML = html;
+        toggleBtn.textContent = "📚 Vista a griglia";
+        isListView = true;
+
+      } else {
+        // TORNO ALLA GRIGLIA
+        container.innerHTML = originalHTML;
+        toggleBtn.textContent = "📄 Vista per tag";
+        isListView = false;
+      }
+      fadeIn(container);
+    });
+  });
+
+  // Etichetta iniziale consigliata
+  if (toggleBtn.textContent.trim() === "📄 Elenco alfabetico") {
+    toggleBtn.textContent = "📄 Vista per tag";
+  }
+});
+</script>
+
+</script>
+
+
+
+
 		
     </body>
 </html>
