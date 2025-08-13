@@ -224,7 +224,7 @@
 </a>
 </div>
 
-<div class="book">
+<div class="book" data-tags="pratica">
 <a href="racconti/charles.html">
   <div class="title"><p> </p></div>
   <div class="book-cover cover8">
@@ -233,7 +233,7 @@
   </div>
   <div class="book-inside">
   </div>
- <p class="pag">Titolo</p>
+ <p class="pag">Pratica</p>
 </a> 
 </div>
 
@@ -241,131 +241,6 @@
 <!-- Chiusa Fila -->
 
 
-<div class="container-fluid container-row">
-
-<div class="book">
-<a href="racconti/mrx.html">
-  <div class="title">
-    <p> </p>
-  </div>
-  <div class="book-cover cover9">
-    <div class="effect"></div>
-    <div class="light"></div>
-  </div>
-  <div class="book-inside">
-  </div>
- <p class="pag">Titolo</p>
-</a>
-</div>
-
-
-<div class="book">
-<a href="racconti/yoli.html">
-  <div class="title">
-    <p> </p>
-  </div>
-  <div class="book-cover cover10">
-    <div class="effect"></div>
-    <div class="light"></div>
-  </div>
-  <div class="book-inside">
-  </div>
- <p class="pag">Titolo</p>
-</div>
-
-
-<div class="book">
-<a href="racconti/nettuno.html">
-  <div class="title">
-    <p> </p>
-  </div>
-  <div class="book-cover cover11">
-    <div class="effect"></div>
-    <div class="light"></div>
-  </div>
-  <div class="book-inside">
-  </div>
- <p class="pag">Titolo</p>
-</a>
-</div>
-
-
-<div class="book">
-<a href="racconti/ultimosoffio.html">
-  <div class="title"><p> </p></div>
-  <div class="book-cover cover12">
-    <div class="effect"></div>
-    <div class="light"></div>
-  </div>
-  <div class="book-inside">
-  </div>
- <p class="pag">Titolo</p>
- </a>
-</div>
-
-</div>
-<!-- Chiusa Fila -->
-
-
-<!-- Fila -->
-<div class="container-fluid container-row">
-
-<div class="book">
-<a href="racconti/oniro.html">
-  <div class="title"><p> </p></div>
-  <div class="book-cover cover13">
-    <div class="effect"></div>
-    <div class="light"></div>
-  </div>
-  <div class="book-inside">
-  </div>
- <p class="pag">Titolo</p>
- </a>
-</div>
-
-<div class="book">
-<a href="racconti/scoiattolo.html">
-  <div class="title"><p> </p></div>
-  <div class="book-cover cover14">
-    <div class="effect"></div>
-    <div class="light"></div>
-  </div>
-  <div class="book-inside">
-  </div>
- <p class="pag">Titolo</p>
- </a>
-</div>
-
-
-<div class="book">
-<a href="racconti/oltre_parco.html">
-  <div class="title"><p> </p></div>
-  <div class="book-cover cover15">
-    <div class="effect"></div>
-    <div class="light"></div>
-  </div>
-  <div class="book-inside">
-  </div>
- <p class="pag">Titolo</p>
- </a>
-</div>
-
-
-<div class="book">
-<a href="racconti/frontiera.html">
-  <div class="title"><p> </p></div>
-  <div class="book-cover cover16">
-    <div class="effect"></div>
-    <div class="light"></div>
-  </div>
-  <div class="book-inside">
-  </div>
- <p class="pag">Titolo</p>
- </a>
-</div>
-
-</div>
-<!-- Chiusa Fila -->
 
   
   </div>
@@ -431,111 +306,72 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 		
+
 <script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const toggleBtn = document.getElementById('toggleViewBtn');
-  const container = document.getElementById('big-container'); // FIX: uso il contenitore giusto
-  if (!toggleBtn || !container) return;
+ <script>
+const toggleBtn = document.getElementById('toggleViewBtn');
+const bigContainer = document.getElementById('big-container');
+let listView = false;
 
-  const originalHTML = container.innerHTML;
-  let isListView = false;
+toggleBtn.addEventListener('click', () => {
+    listView = !listView;
 
-  const preferredOrder = ["mindfulness", "pratica", "postura", "storie"];
-
-  function fadeOut(el, cb) {
-    el.style.opacity = 1;
-    el.style.transition = "opacity 0.3s ease";
-    requestAnimationFrame(() => {
-      el.style.opacity = 0;
-      setTimeout(cb, 300);
-    });
-  }
-  function fadeIn(el) {
-    el.style.opacity = 0;
-    el.style.transition = "opacity 0.3s ease";
-    requestAnimationFrame(() => { el.style.opacity = 1; });
-  }
-
-  toggleBtn.addEventListener('click', () => {
-    fadeOut(container, () => {
-      if (!isListView) {
-        // COSTRUISCO LA LISTA PER TAG
-        const books = Array.from(container.querySelectorAll('.book'));
-        const grouped = new Map();
-
-        books.forEach(book => {
-          const link = book.querySelector('a')?.getAttribute('href');
-          const title = book.querySelector('.pag')?.textContent.trim();
-          if (!link || !title) return;
-
-          const tags = (book.dataset.tags || "")
-            .split(',')
-            .map(t => t.trim().toLowerCase())
-            .filter(Boolean); // elimina vuoti
-
-          if (tags.length === 0) {
-            const k = 'altri';
-            if (!grouped.has(k)) grouped.set(k, []);
-            grouped.get(k).push({ title, link });
-          } else {
-            tags.forEach(tag => {
-              if (!grouped.has(tag)) grouped.set(tag, []);
-              grouped.get(tag).push({ title, link });
-            });
-          }
-        });
-
-        // Ordine tag: prima i preferiti presenti, poi gli altri in ordine alfabetico
-        const allTags = Array.from(grouped.keys());
-        const extras = allTags.filter(t => !preferredOrder.includes(t)).sort((a,b) => a.localeCompare(b, 'it'));
-        const order = preferredOrder.filter(t => grouped.has(t)).concat(extras);
-
-        let html = `<div class="list-view-container" style="max-width:700px;margin:auto;">`;
-        order.forEach(tag => {
-          const items = grouped.get(tag).sort((a,b) => a.title.localeCompare(b.title, 'it', {sensitivity:'base'}));
-          const niceTag = tag.charAt(0).toUpperCase() + tag.slice(1);
-          html += `<h3 style="margin-top:1em;">${niceTag}</h3><ul class="list-group">`;
-          items.forEach((item, i) => {
-            html += `
-              <li class="list-group-item"
-                  style="opacity:0;transform:translateY(10px);
-                         animation:fadeInUp .3s ease forwards;
-                         animation-delay:${i * 0.1}s;">
-                <a href="${item.link}">${item.title}</a>
-              </li>`;
-          });
-          html += `</ul>`;
-        });
-        html += `</div>
-          <style>
-            @keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
-            .list-view-container .list-group-item a { text-decoration:none; }
-            .list-view-container .list-group-item a:hover { text-decoration:underline; }
-          </style>`;
-
-        container.innerHTML = html;
-        toggleBtn.textContent = "📚 Vista a griglia";
-        isListView = true;
-
-      } else {
-        // TORNO ALLA GRIGLIA
-        container.innerHTML = originalHTML;
-        toggleBtn.textContent = "📄 Vista per tag";
-        isListView = false;
-      }
-      fadeIn(container);
-    });
-  });
-
-  // Etichetta iniziale consigliata
-  if (toggleBtn.textContent.trim() === "📄 Elenco alfabetico") {
-    toggleBtn.textContent = "📄 Vista per tag";
-  }
+    if(listView) {
+        toggleBtn.textContent = '🔳 Visualizzazione a griglia';
+        bigContainer.classList.add('list-view');
+        displayListByTags();
+    } else {
+        toggleBtn.textContent = '📄 Elenco alfabetico';
+        bigContainer.classList.remove('list-view');
+        restoreGrid();
+    }
 });
+
+// Funzione per raggruppare i link per tag
+function displayListByTags() {
+    const books = Array.from(bigContainer.querySelectorAll('.book'));
+    const tagsMap = {};
+
+    books.forEach(book => {
+        const tags = book.dataset.tags.split(',').map(t => t.trim());
+        tags.forEach(tag => {
+            if(!tagsMap[tag]) tagsMap[tag] = [];
+            tagsMap[tag].push(book);
+        });
+    });
+
+    // Pulisce il contenitore
+    bigContainer.innerHTML = '';
+
+    // Crea sezioni per ogni tag
+    Object.keys(tagsMap).sort().forEach(tag => {
+        const tagDiv = document.createElement('div');
+        tagDiv.classList.add('tag-group');
+
+        const tagTitle = document.createElement('div');
+        tagTitle.classList.add('tag-title');
+        tagTitle.textContent = tag;
+        tagDiv.appendChild(tagTitle);
+
+        tagsMap[tag].forEach(book => {
+            const link = book.querySelector('a').cloneNode(true);
+            // rimuove elementi non necessari
+            link.querySelectorAll('.book-cover, .book-inside, .title').forEach(el => el.remove());
+            tagDiv.appendChild(link);
+        });
+
+        bigContainer.appendChild(tagDiv);
+    });
+}
+
+// Ripristina la griglia originale
+function restoreGrid() {
+    location.reload(); // semplice soluzione se i dati non sono dinamici
+}
 </script>
 
 </script>
+
 
 
 
