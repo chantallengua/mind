@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
 
         const doc = new jsPDF('p', 'pt', 'a4');
-        const margin = 60; // margine più ampio
+        const margin = 60; 
         const lineHeight = 16;
         const pageWidth = doc.internal.pageSize.width;
         const pageHeight = doc.internal.pageSize.height;
@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (p.classList.contains('pill-date')) return;
 
             const words = [];
-
             const parseNode = (node) => {
                 if (node.nodeName === 'B') {
                     node.textContent.split(/(\s+)/).forEach(w => words.push({ text: w, bold: w.trim() !== '', italic: false, link: null }));
@@ -40,18 +39,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             p.childNodes.forEach(parseNode);
 
-            // Imposta stile e indentazione
             if (p.classList.contains('bib')) {
-                doc.setTextColor(136,136,136); // grigio
+                doc.setTextColor(136,136,136);
                 doc.setFontSize(10);
-                x = margin + 20; // indentazione
+                x = margin + 20;
             } else if (p.tagName === 'BLOCKQUOTE') {
-                doc.setTextColor(136,136,136); // grigio
-                doc.setFontSize(11); // blockquote pt 11
-                x = margin + 10; // indentazione leggera
+                doc.setTextColor(136,136,136);
+                doc.setFontSize(11);
+                x = margin + 10;
             } else {
-                doc.setTextColor(0,0,0); // nero normale
-                doc.setFontSize(11); // testo leggermente più piccolo
+                doc.setTextColor(0,0,0);
+                doc.setFontSize(11);
                 x = margin;
             }
 
@@ -60,8 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (word.bold && word.italic) fontStyle = 'bolditalic';
                 else if (word.bold) fontStyle = 'bold';
                 else if (word.italic) fontStyle = 'italic';
-
-                // Se è blockquote, forza il corsivo
                 if (p.tagName === 'BLOCKQUOTE') fontStyle = 'italic';
 
                 doc.setFont('helvetica', fontStyle);
@@ -81,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     doc.text(word.text, x, y);
                 }
-
                 x += textWidth;
             });
 
@@ -89,7 +84,22 @@ document.addEventListener('DOMContentLoaded', () => {
             x = margin;
         };
 
-        // AUTORE CENTRALE CON LINEA SOTTO E MARGINI
+        // ====== BANNER A PIENA LARGHEZZA, NESSUN MARGINE/PADDING ======
+        const bannerUrl = 'https://raw.githubusercontent.com/chantallengua/mind/refs/heads/main/assets/img/bg-masthead.jpg';
+        const bannerImg = await fetch(bannerUrl)
+            .then(res => res.blob())
+            .then(blob => new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onloadend = () => resolve(reader.result);
+                reader.readAsDataURL(blob);
+            }));
+
+        const bannerWidth = pageWidth;  // tutta larghezza pagina
+        const bannerHeight = 50;        // altezza nastro
+        doc.addImage(bannerImg, 'JPEG', 0, 0, bannerWidth, bannerHeight);
+        y = bannerHeight + 40; // sposta il testo sotto il banner
+
+        // AUTORE CENTRALE
         const authorName = 'Antonio Lengua';
         doc.setFont('helvetica', 'normal');
         doc.setFontSize(10);
@@ -97,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const authorWidth = doc.getTextWidth(authorName);
         doc.text(authorName, (pageWidth - authorWidth) / 2, y);
 
-        y += lineHeight; // spazio sopra linea
+        y += lineHeight;
         const linePadding = 4;
         doc.setDrawColor(200, 200, 200);
         doc.setLineWidth(0.5);
@@ -106,11 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
         doc.line(lineStart, y + linePadding, lineEnd, y + linePadding);
         y += lineHeight + linePadding * 2;
 
-        // MARGINE/PADDING BOTTOM TRA LINEA E TITOLO
-        const lineToTitleMargin = 20;
-        y += lineToTitleMargin;
+        y += 20; // spazio extra tra linea e titolo
 
-        // Titolo h2
+        // Titolo
         const titleEl = content.querySelector('h2');
         let articleTitle = '';
         if (titleEl) {
@@ -133,14 +141,11 @@ document.addEventListener('DOMContentLoaded', () => {
             doc.setFontSize(10);
             doc.setTextColor(136,136,136);
             doc.text(dateEl.innerText, margin, y);
-
-            // AUMENTO SPAZIO TRA DATA E TESTO
-            y += lineHeight + 25; // <-- più spazio qui
+            y += lineHeight + 25; 
         }
 
-        // Paragrafi
+        // Corpo testo
         const paragraphs = Array.from(content.querySelectorAll('p, blockquote'));
-
         let bibStarted = false;
         paragraphs.forEach(p => {
             if (p.classList.contains('bib') && !bibStarted) {
@@ -152,11 +157,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 y += lineHeight;
                 bibStarted = true;
             }
-
             addParagraphSingleLine(p);
         });
 
-        // Salva file
         const fileName = `Lengua_${articleTitle || 'articolo'}.pdf`;
         doc.save(fileName);
     });
