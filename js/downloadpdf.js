@@ -89,14 +89,34 @@ document.addEventListener('DOMContentLoaded', () => {
             x = margin;
         };
 
+        // AUTORE CENTRALE CON LINEA SOTTO E MARGINI
+        const authorName = 'Antonio Lengua';
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(10);
+        doc.setTextColor(136,136,136);
+        const authorWidth = doc.getTextWidth(authorName);
+        doc.text(authorName, (pageWidth - authorWidth) / 2, y);
+
+        y += lineHeight; // spazio sopra linea
+        const linePadding = 4;
+        doc.setDrawColor(200, 200, 200);
+        doc.setLineWidth(0.5);
+        const lineStart = margin + 40;
+        const lineEnd = pageWidth - margin - 40;
+        doc.line(lineStart, y + linePadding, lineEnd, y + linePadding);
+        y += lineHeight + linePadding * 2;
+
+        // MARGINE/PADDING BOTTOM TRA LINEA E TITOLO
+        const lineToTitleMargin = 20;
+        y += lineToTitleMargin;
+
         // Titolo h2
         const titleEl = content.querySelector('h2');
         let articleTitle = '';
         if (titleEl) {
-            y += 20; // margin-top sopra titolo principale
             doc.setFont('helvetica', 'bold');
-            doc.setFontSize(20); // titolo leggermente più grande
-            doc.setTextColor(56, 144, 1); // verde #389001
+            doc.setFontSize(20);
+            doc.setTextColor(56, 144, 1);
             doc.text(titleEl.innerText, margin, y);
             y += lineHeight + 10;
 
@@ -113,7 +133,9 @@ document.addEventListener('DOMContentLoaded', () => {
             doc.setFontSize(10);
             doc.setTextColor(136,136,136);
             doc.text(dateEl.innerText, margin, y);
-            y += lineHeight + 10;
+
+            // AUMENTO SPAZIO TRA DATA E TESTO
+            y += lineHeight + 25; // <-- più spazio qui
         }
 
         // Paragrafi
@@ -121,14 +143,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let bibStarted = false;
         paragraphs.forEach(p => {
-            // Aggiungi titolo Riferimenti prima dei paragrafi bib
             if (p.classList.contains('bib') && !bibStarted) {
-                y += lineHeight; // piccolo spazio prima
+                y += lineHeight;
                 doc.setFont('helvetica', 'bold');
                 doc.setFontSize(12);
-                doc.setTextColor(136,136,136); // grigio
+                doc.setTextColor(136,136,136);
                 doc.text('Riferimenti:', margin, y);
-                y += lineHeight; // spazio dopo titolo
+                y += lineHeight;
                 bibStarted = true;
             }
 
