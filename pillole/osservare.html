@@ -14,6 +14,8 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../css/styles.css" rel="stylesheet" />
+		<!-- downloadPDF script -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 		
 
 		
@@ -95,9 +97,9 @@
     <div class="container mt-lg-4 px-lg-5">
         <div class="row gx-5">
             
-            <!-- Colonna principale con il testo -->
+            <!-- Colonna a sinistra con il testo -->
             <div class="col-lg-9 pl-4">
-                <div class="featured-text text-left pillole">
+                <div class="featured-text text-left pillole" id="articolo-contenuto">
 						<h2 class="mb-3"><b>Osservare il respiro senza controllarlo</b></h2>
 						
 						<hr style="border: 2px solid #389001; margin: 20px 0;">
@@ -105,95 +107,108 @@
 						<p class="pill-date"> Ottobre 2025 </p>
 						
 						
-						<p>
-							Nella meditazione osservo il respiro senza giudicarlo e senza modificarlo.
+						<p>Nella meditazione osservo il respiro senza giudicarlo e senza modificarlo.</p>						
+						<p>Osservare il respiro, che può essere modificato, è un esercizio più difficile, per esempio, che osservare il battito cardiaco (restando sul corpo) che invece non posso modificare facilmente. Richiede al tempo stesso un'<b>osservazione</b> e un <b>non-fare</b>, quindi un'osservazione sul respiro e un'osservazione sulla tentazione di modificarlo. Esercito quindi la capacità di osservare il desiderio di cambiare il ritmo naturale, un desiderio concettuale, elaborato dal cervello, e <b>mi limito a lasciar fluire la componente istintiva del respiro</b>.</p>						
+						<p>Nel ritmo del respiro c'è infatti una <b>componente involontaria</b> e una <b>componente volontaria</b>. La prima è dominante: se penso ad altro che al respiro, se sono occupato in altro, il respiro va da solo. Ma quando richiamo  l attenzione proprio sul respiro, e amplifico l'esperienza del respiro, che fino ad allora restava in secondo piano, <b>la tentazione di giudicarlo e quindi correggerlo emerge</b>, due componenti (giudizio e modifica) che , col respiro in background, restavano sopite.</p>						<p>Questo avviene con tutto: <b>quando porto l'attenzione su una attività, la corteccia prefrontale viene attivata</b>, con tutto quello che ne comporta: <b>essa è responsabile di funzioni esecutive complesse come pianificazione, ragionamento, presa di decisioni e controllo inibitorio</b>. È anche coinvolta in regolazione emotiva, memoria di lavoro e pensiero astratto. La corteccia prefrontale <b>permette di inibire risposte impulsive, di resistere alle distrazioni e di mantenere il focus su un obiettivo</b>.</p>
+						<p>Quindi, se <b>da un lato rafforzo il focus, dall'altro aumento la capacità di formulare giudizi e il ragionamento logico</b>.</p>
+						<p>Osservare un oggetto di meditazione che non posso modificare sviluppa anche la capacità di giudizio ma non la capacità di intervenire su questo se non lo considero adeguato. Nel caso del respiro invece attivando la corteccia prefrontale, attivo sia il giudizio che il desiderio di modifica che deriva dal giudizio. <b>Restare in modalita di osservazione non giudicante e non modificante è quindi un doppio lavoro</b>: uso la corteccia prefrontale per osservare con zoom potente ma al tempo stesso però scollego la funzione di giudizio, e la conseguente azione di modifica. Quindi <b>osservo ma inibisco la funzione di controllo e gestione: osservo la realtà accettandola, senza modificarla</b>.</p>					
+						<p>Qui si apre un altro livello ancora più interessante: modificare la realtà può essere funzionale se dipende da me. Spesso invece la modifica della realtà è solo un'elaborazione del mio cervello: non cambio la realtà ma solo la percezione della realtà. <b>Come lo zoom della fotocamera: fino ad un certo punto è ottico</b>. Poi diventa elaborazione digitale: non osserva più la realtà ma interpreta.
 						</p>
-						<p>
-						Osservare il respiro, che può essere modificato, è un esercizio più difficile, per esempio, che osservare il battito cardiaco (restando sul corpo) che invece non posso modificare facilmente. Richiede al tempo stesso un'<b>osservazione</b> e un <b>non-fare</b>, quindi un'osservazione sul respiro e un'osservazione sulla tentazione di modificarlo. 
-						Esercito quindi la capacità di osservare il desiderio di cambiare il ritmo naturale, un desiderio concettuale, elaborato dal cervello, e <b>mi limito a lasciar fluire la componente istintiva del respiro</b>.
-						</p>
-						<p>
-						Nel ritmo del respiro c'è infatti una <b>componente involontaria</b> e una <b>componente volontaria</b>. La prima è dominante: se penso ad altro che al respiro, se sono occupato in altro, il respiro va da solo.
-						Ma quando richiamo  l attenzione proprio sul respiro, e amplifico l'esperienza del respiro, che fino ad allora restava in secondo piano, <b>la tentazione di giudicarlo e quindi correggerlo emerge</b>, due componenti (giudizio e modifica) che , col respiro in background, restavano sopite.
-						</p>
-						<p>
-						Questo avviene con tutto: <b>quando porto l'attenzione su una attività, la corteccia prefrontale viene attivata</b>, con tutto quello che ne comporta: <b>essa è responsabile di funzioni esecutive complesse come pianificazione, ragionamento, presa di decisioni e controllo inibitorio</b>. 
-						È anche coinvolta in regolazione emotiva, memoria di lavoro e pensiero astratto. 
-						La corteccia prefrontale <b>permette di inibire risposte impulsive, di resistere alle distrazioni e di mantenere il focus su un obiettivo</b>. 
-						</p>
-						<p>
-						Quindi, se <b>da un lato rafforzo il focus, dall'altro aumento la capacità di formulare giudizi e il ragionamento logico</b>.
-						</p>
-						<p>
-						Osservare un oggetto di meditazione che non posso modificare sviluppa anche la capacità di giudizio ma non la capacità di intervenire su questo se non lo considero adeguato.
-						Nel caso del respiro invece attivando la corteccia prefrontale, attivo sia il giudizio che il desiderio di modifica che deriva dal giudizio.
-						   <b>Restare in modalita di osservazione non giudicante e non modificante è quindi un doppio lavoro</b>: uso la corteccia prefrontale per osservare con zoom potente ma al tempo stesso però scollego la funzione di giudizio, e la conseguente azione di modifica. 
-						Quindi <b>osservo ma inibisco la funzione di controllo e gestione: osservo la realtà accettandola, senza modificarla</b>.
-						</p>
-						<p>
-						Qui si apre un altro livello ancora più interessante: 
-						Modificare la realtà può essere funzionale se dipende da me. Spesso invece la modifica della realtà è solo un'elaborazione del mio cervello: non cambio la realtà ma solo la percezione della realtà.
-						   <b>Come lo zoom della fotocamera: fino ad un certo punto è ottico</b>. Poi diventa elaborazione digitale: non osserva più la realtà ma interpreta.
-						</p>
-						<p>   <b>Se cadiamo nell'interpretazione, ci scolleghiamo dall'osservazione della realtà: attiviamo il giudizio, e ci allontaniamo dalla pura osservazione</b>.
-						Confondiamo le due aree; realtà e mia elaborazione, zoom reale e zoom ricostruito (la ricostruzione è fedele alla realtà?!).
+						<p><b>Se cadiamo nell'interpretazione, ci scolleghiamo dall'osservazione della realtà: attiviamo il giudizio, e ci allontaniamo dalla pura osservazione</b>. Confondiamo le due aree; realtà e mia elaborazione, zoom reale e zoom ricostruito (la ricostruzione è fedele alla realtà?!).
 						</p>
 						<p>Osservare il respiro senza giudicare e senza una conseguente modifica evita di cadere in questa distorsione.
 					  </p>
-						
+					
                 </div>
             </div>
 			
 				
-			
-		<div class="col-lg-3 sidebar-column" style="padding-left: 2.5em; padding-right: 2.5em;">
-        <h5 class="mb-3" style="color: grey"><b>Articoli simili</b></h5>
- <div class="row g-2">
-    <div class="col-6">
-      <div class="card text-center">
-        <a href="#" class="d-block">
-          <img src="../assets/img/0.jpg" class="card-img-top img-fluid" alt="Osservare il respiro" />
-        </a>
-        <div class="card-body p-2">
-          <a href="pillole/osservare.html" class="card-text small">Testo placeholder</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-6">
-      <div class="card text-center">
-        <a href="#" class="d-block">
-          <img src="../assets/img/3.jpg" class="card-img-top img-fluid" alt="Meditazione base" />
-        </a>
-        <div class="card-body p-2">
-          <a href="#" class="card-text small">Testo placeholder</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-6">
-      <div class="card text-center">
-        <a href="#" class="d-block">
-          <img src="../assets/img/5.jpg" class="card-img-top img-fluid" alt="Mindfulness avanzata" />
-        </a>
-        <div class="card-body p-2">
-          <a href="#" class="card-text small">Testo placeholder</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-6">
-      <div class="card text-center">
-        <a href="#" class="d-block">
-          <img src="../assets/img/4.jpg" class="card-img-top img-fluid" alt="Tecniche di rilassamento" />
-        </a>
-        <div class="card-body p-2">
-          <a href="#" class="card-text small">Testo placeholder</a>
-        </div>
-      </div>
-    </div>
-  </div>
-      </div>
+		
+			<!-- Colonna a destra, sidebar -->
+				
+			<div class="col-lg-3 sidebar-column" style="padding-left: 2.5em; padding-right: 2.5em;">
 
-    </div>
-  </div>
+				<!-- Scarica PDF -->
+				
+				<div class="card mb-5 text-center" style="width: 100%; border: 1px solid #dee2e6;">
+				  <a href="articolo.pdf" target="_blank" class="text-decoration-none text-dark">
+					<div class="card-body p-2 d-flex align-items-center" style="justify-content: flex-start;">
+					  <i class="fas fa-file-pdf" style="color:#389001; font-size: 1.5rem; padding: 0 0.5rem;"></i>
+					  <span style="text-align: center; font-weight: normal; font-size: 1rem; color: grey; ">Scarica questo articolo</span>
+					</div>
+				  </a>
+				</div>
+
+				<!-- Tags -->
+					
+				<div class="card text-center mt-3 mb-5" style="width: 100%; border: 1px solid #dee2e6;">
+				  <div class="card-body p-3 d-flex flex-column gap-2 align-items-start">
+					<h5 class="mb-4" style="color: grey; width: 100%; text-align: left;"><b>Tags</b></h5>
+
+					<a href="../pillole.html?view=tags" class="tags rosa">
+					   Mindfulness
+					</a>
+					<a href="../pillole.html?view=tags" class="tags verde">
+					   Pratica
+					</a>
+					<a href="../pillole.html?view=tags" class="tags lilla">				   
+					   Postura
+					</a>
+					<a href="../pillole.html?view=tags" class="tags arancio">				   				 
+					   Storie
+					</a>
+				  </div>
+				</div>
+				
+				<!-- Articoli interessanti -->
+			
+				<h5 class="mt-4 mb-3" style="color: grey"><b>Articoli interessanti</b></h5>
+							
+				<div class="row g-2">
+					<div class="col-6">
+					  <div class="card text-center">
+						<a href="#" class="d-block">
+						  <img src="../assets/img/0.jpg" class="card-img-top img-fluid" alt="Osservare il respiro" />
+						</a>
+						<div class="card-body p-2">
+						  <a href="pillole/osservare.html" class="card-text small">Testo placeholder</a>
+						</div>
+					  </div>
+					</div>
+					<div class="col-6">
+					  <div class="card text-center">
+						<a href="#" class="d-block">
+						  <img src="../assets/img/3.jpg" class="card-img-top img-fluid" alt="Meditazione base" />
+						</a>
+						<div class="card-body p-2">
+						  <a href="#" class="card-text small">Testo placeholder</a>
+						</div>
+					  </div>
+					</div>
+					<div class="col-6">
+					  <div class="card text-center">
+						<a href="#" class="d-block">
+						  <img src="../assets/img/5.jpg" class="card-img-top img-fluid" alt="Mindfulness avanzata" />
+						</a>
+						<div class="card-body p-2">
+						  <a href="#" class="card-text small">Testo placeholder</a>
+						</div>
+					  </div>
+					</div>
+					<div class="col-6">
+					  <div class="card text-center">
+						<a href="#" class="d-block">
+						  <img src="../assets/img/4.jpg" class="card-img-top img-fluid" alt="Tecniche di rilassamento" />
+						</a>
+						<div class="card-body p-2">
+						  <a href="#" class="card-text small">Testo placeholder</a>
+						</div>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 		
 		
@@ -247,5 +262,11 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 		
+		<!-- downloadPDF script-->
+		<script src="../js/downloadpdf.js"></script>
+
     </body>
+
+
+
 </html>
