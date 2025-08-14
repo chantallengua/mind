@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
 
         const doc = new jsPDF('p', 'pt', 'a4');
-        const margin = 40;
+        const margin = 60; // margine più ampio
         const lineHeight = 16;
         const pageWidth = doc.internal.pageSize.width;
         const pageHeight = doc.internal.pageSize.height;
@@ -47,11 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 x = margin + 20; // indentazione
             } else if (p.tagName === 'BLOCKQUOTE') {
                 doc.setTextColor(136,136,136); // grigio
-                doc.setFontSize(12);
+                doc.setFontSize(11); // blockquote pt 11
                 x = margin + 10; // indentazione leggera
             } else {
                 doc.setTextColor(0,0,0); // nero normale
-                doc.setFontSize(12);
+                doc.setFontSize(11); // testo leggermente più piccolo
                 x = margin;
             }
 
@@ -93,8 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const titleEl = content.querySelector('h2');
         let articleTitle = '';
         if (titleEl) {
+            y += 20; // margin-top sopra titolo principale
             doc.setFont('helvetica', 'bold');
-            doc.setFontSize(18);
+            doc.setFontSize(20); // titolo leggermente più grande
             doc.setTextColor(56, 144, 1); // verde #389001
             doc.text(titleEl.innerText, margin, y);
             y += lineHeight + 10;
