@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // ====== BANNER A PIENA LARGHEZZA, NESSUN MARGINE/PADDING ======
-        const bannerUrl = 'https://raw.githubusercontent.com/chantallengua/mind/refs/heads/main/assets/img/bg-masthead.jpg';
+        const bannerUrl = 'https://raw.githubusercontent.com/chantallengua/mind/refs/heads/main/assets/img/bannerpdf.png';
         const bannerImg = await fetch(bannerUrl)
             .then(res => res.blob())
             .then(blob => new Promise((resolve) => {
