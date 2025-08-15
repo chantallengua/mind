@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             x = margin;
         };
 
-        // ====== BANNER A PIENA LARGHEZZA, NESSUN MARGINE/PADDING ======
+        // ====== BANNER ======
         const bannerUrl = 'https://raw.githubusercontent.com/chantallengua/mind/refs/heads/main/assets/img/bannerpdf.png';
         const bannerImg = await fetch(bannerUrl)
             .then(res => res.blob())
@@ -94,12 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 reader.readAsDataURL(blob);
             }));
 
-        const bannerWidth = pageWidth;  // tutta larghezza pagina
-        const bannerHeight = 50;        // altezza nastro
+        const bannerWidth = pageWidth;  
+        const bannerHeight = 50;        
         doc.addImage(bannerImg, 'JPEG', 0, 0, bannerWidth, bannerHeight);
-        y = bannerHeight + 40; // sposta il testo sotto il banner
+        y = bannerHeight + 40; 
 
-        // AUTORE CENTRALE
+        // AUTORE
         const authorName = 'Antonio Lengua';
         doc.setFont('helvetica', 'normal');
         doc.setFontSize(10);
@@ -107,7 +107,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const authorWidth = doc.getTextWidth(authorName);
         doc.text(authorName, (pageWidth - authorWidth) / 2, y);
 
+        y += lineHeight + 4; // più spazio tra autore e sito
+
+        // SITO WEB
+        const siteUrl = 'www.ilmiosito.it';
+        const siteWidth = doc.getTextWidth(siteUrl);
+        const siteX = (pageWidth - siteWidth) / 2;
+        doc.setTextColor(136,136,136);
+        doc.textWithLink(siteUrl, siteX, y, { url: 'https://www.ilmiosito.it' });
+
+        // sottolineatura un po’ più bassa
+        doc.setDrawColor(136,136,136);
+        doc.setLineWidth(0.3);
+        doc.line(siteX, y + 2.5, siteX + siteWidth, y + 2.5);
+
         y += lineHeight;
+
+        // LINEA SEPARATRICE
         const linePadding = 4;
         doc.setDrawColor(200, 200, 200);
         doc.setLineWidth(0.5);
@@ -116,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         doc.line(lineStart, y + linePadding, lineEnd, y + linePadding);
         y += lineHeight + linePadding * 2;
 
-        y += 20; // spazio extra tra linea e titolo
+        y += 20; 
 
         // Titolo
         const titleEl = content.querySelector('h2');
