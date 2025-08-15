@@ -11996,3 +11996,28 @@ sup a {
 .lilla {	background-color: #9fa8da;	}
 .arancio {	background-color: #ffb74d;	}
 .rosa {		background-color: #f48fb1;	}
+.blue-telegram { color: #24A1DE; }
+.blue-telegram:hover { color: #1c80b1; }
+.blue-zoom { color:#0B5CFF; }
+
+.card-img-top.qr-code {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #fff;
+  padding-top: 6px;
+  display: block;
+  width: 100%;
+  max-width: 300px; /* limite massimo su desktop */
+  margin: 0 auto;   /* centrato */
+}
+
+/* Su schermi piccoli: forza una larghezza minima */
+@media (max-width: 576px) {
+  .card-img-top.qr-code {
+    max-width: 200px; /* grande abbastanza per essere leggibile su mobile */
+  }
+}
+
+.card .d-block { overflow: visible; }
+
+
