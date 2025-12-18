@@ -1,0 +1,4 @@
+via corsi studenti
+calendario annuale tre corsi con cliccabilità con paragrafo di specifica (pop up o nuova pagina)
+hamburger navbar orizzontale con tre corsi
+ognuno ha un testo e un pdf scaricabile
