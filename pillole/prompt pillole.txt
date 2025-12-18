@@ -1,0 +1,10 @@
+che preso questo master-pillole.html e come input un file di testo semplice testo.txt, crei un output.html dove riempirai il contenuto da <!-- Colonna a sinistra con il testo --> a <!-- Fine colonna a sinistra con il testo --> con le seguenti istruzioni:
+la data dell'articolo va messa in formato tipo 11 Febbraio 2025, nel già presente <p id="data">
+il titolo va messo nel già presente <p id="titolo">
+Ogni riga "a capo" del file di testo va trattata come un <p> separato
+Quando trovi la scritta "quote:", elimini la parola "quote:" e inserisci la frase successiva nel già presente <blockquote class="pills-quote">. Inserisci poi tra <sup><a href="#bib1>[1]</a></sup> il numero della bibliografia cui si riferisce (vedi sotto).
+Se ci sono elenchi puntati nel testo semplice li tratti come <ul> con dei <li>
+Tramuti le parole o frasi in *bla bla bla* nel testo semplice come fossero grassetti e in _bla bla bla_ come fossero corsivi.
+Se ci sono elementi bibliografici finali come [1] Pensa, C. (2002). _Attenzione saggia, attenzione non saggia_. Magnanelli. li inserisci in <p id="bib1" class="bib first-bib"> e quelli successivi in <p id="bib2" class="bib">, <p id="bib3" class="bib">,  e cosi via. Se nel testo semplice non sono specificati elementi bibliografici non metterli.
+Il resto del master-pillole.html rimane uguale.
+Ora ti mando il master-pillole.html dopo ti mando un file testo.txt di prova e dopo mi generi il file python.
