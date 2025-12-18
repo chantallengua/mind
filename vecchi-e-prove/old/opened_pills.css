@@ -1,0 +1,283 @@
+
+*,
+:before,
+:after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1d1f20;
+    color: #e5e5e5;
+    margin: 0;
+}
+
+#wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80em;
+	font: 14px/1.25;
+}
+
+#container {
+    float: left;
+    padding: 1em;
+    width: 100%;
+}
+
+article {
+	text-align: justify !important;
+}
+
+
+.img-thumbnail {
+max-width: 14em;
+}
+
+h1 {
+	margin-left: 2em;
+}
+
+/*** OPEN BOOK ***/
+.open-book {
+    background: #fff;
+    box-shadow: rgba(0,0,0,0.5) 0 1em 3em;
+    color: #000;
+    padding: 3em 2em;
+	border-radius: 3px;
+}
+
+.open-book * {
+    position: relative;
+}
+
+
+/* Header/Footer */
+.open-book header {
+   /* padding-bottom: 1em;*/
+}
+
+.open-book header,
+.open-book footer * {
+    font: 400 1em/1.25;
+    letter-spacing: 0.125em;
+    margin: 0;
+}
+
+.open-book header * {
+    font-size: 0.75em;
+    text-transform: uppercase;
+}
+
+.open-book footer {
+    padding: 1em;
+    padding-bottom: 0em
+}
+
+.open-book footer #page-numbers {
+    display: none;
+    list-style: none;
+    padding-left: 1em;
+    text-align: left;
+}
+
+.open-book footer #page-numbers > li:last-child {
+    text-align: right;
+}
+
+/* Chapter Title */
+.open-book .chapter-title {
+    background-size: 0.5em 0.5em;   
+    font: 400 1.8em/1.25;
+    text-transform: uppercase;
+    
+    padding: 1em 0;
+    position: relative;
+    text-align: center;
+}
+
+
+.open-book .about-title {
+    background-size: 0.5em 0.5em;   
+    font: 400 1.8em/1.25;
+    text-transform: uppercase;
+	padding: 0em 0em 1.5em 0em;
+    position: relative;
+    text-align: center;
+}
+
+.open-book .about-title:before {
+    left: 0;
+}
+
+.open-book .about-title:after {
+    right: 0;
+}
+
+/* Body Copy */
+.open-book article {
+    line-height: 1.5;
+}
+
+.open-book article *:not(.chapter-title):not(hr):not(dl):not(i):not(a):not(button):not(image):not(img):not(span):not(b):not(.not):not(h4):not(.bi) {
+    margin: 0 2em;
+    max-width: 28.125em;
+}
+
+.bi {
+	font-size: 14pt;
+}
+
+.btn-pdf {
+	margin-top: 2.5em;
+	margin-right: 0.5em;
+    margin-left: 0.5em;
+	padding: 0.275rem 0.55rem !important;
+	color: black;
+	font-size: 10pt;
+}
+
+.p-copyright a {
+color: RGB(0, 96, 197);
+}
+
+.btn-pdf:hover {
+    color: black;
+	background: #6c757d38 
+}
+
+.btn-pdf:active, .btn-pdf:checked, .btn-pdf:focus, .btn-pdf:active:focus {
+	box-shadow: none;
+}
+
+
+
+
+.open-book article p {
+    text-indent: 2em;
+}
+
+.link-about, .not {
+    text-indent: 0em !important;
+}
+
+.open-book .chapter-title + p:first-of-type, .open-book .about-title + p:first-of-type {
+    text-indent: 0;
+}
+
+.open-book .chapter-title + p:first-of-type:first-letter, .open-book .about-title + p:first-of-type:first-letter {
+    float: left;
+    font: 700 3em/0.65;
+    padding: 0.15em 0.05em 0 0;
+    text-transform: uppercase;
+}
+
+.open-book article > ul,
+.open-book article > ol {
+    padding-left: 3em;
+}
+
+.open-book article > ul ul {
+    padding-left: 1em;
+}
+
+.open-book hr {
+    background-color: #000;
+    border: 0;
+    height: 1.5px;
+    margin: 2em;
+}
+
+
+
+
+/*** MEDIA QUERIES - DESKTOP ***/
+
+@media only screen and ( min-width: 50em ) {
+
+    .open-book {
+        margin: 1em;
+        position: relative;
+    }
+
+    .open-book:after {
+        background: linear-gradient(to right, transparent 0%,rgba(0,0,0,0.2) 46%,rgba(0,0,0,0.5) 49%,rgba(0,0,0,0.6) 50%,rgba(0,0,0,0.5) 51%,rgba(0,0,0,0.2) 52%,transparent 100%);
+        bottom: -1em;
+        content: '';
+        left: 50%;
+        position: absolute;
+        top: -1em;
+        transform: translate(-50%,0);
+        width: 4em;
+        z-index: 1;
+    }
+
+    .open-book > * {
+        column-count: 2;
+        column-gap: 6em;
+        position: relative;
+        z-index: 1;
+    }
+
+    .open-book header > *:last-child,
+    .open-book footer > *:last-child {
+        text-align: right;
+    }
+
+    .open-book footer #page-numbers {
+        display: block;
+    }
+
+    /* Chapter Title */
+    .open-book .chapter-title {
+        font-size: 3em;
+    }
+
+    .open-book .chapter-title:before,
+    .open-book .chapter-title:after {
+        height: 0.125em;
+    }
+
+    /* Body Copy */
+
+
+    .open-book article > ul,
+    .open-book article > ol {
+        padding-left: 4em;
+    }
+
+.icons-container {
+	margin-left: 33% !important;
+}
+
+}
+
+/*questo per smartphone*/
+.icons-container {
+	margin-left: 29%;
+}
+
+
+.i {
+	font-style: italic;
+}
+
+
+@media only screen and ( max-width: 760px ) {
+p {
+    margin: 0em !important;
+}
+
+footer { display: none; }
+
+.footer-about {display: block;}
+}
+
+.icons_contatti {
+	font-size: 12pt;
+	text-decoration: none !important;
+}
+
+.bi-filetype-pdf {
+	color: #212529;
+}
+

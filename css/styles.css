@@ -12020,4 +12020,120 @@ sup a {
 
 .card .d-block { overflow: visible; }
 
+/* Accordion di Corsi Traders */
+.accordion-button {
+    font-size: 1.15rem;
+    font-weight: 700;
+    background-color: #fafcf8;
+    color: #1f3b1f;
+    transition: background-color 0.2s ease;
+}
+
+.accordion-button.collapsed:hover {
+    background-color: #e6f2df; /* verdino */
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #dcebd4; /* verdino */
+    color: #1f3b1f;
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed):hover {
+    background-color: #e6f2df; /* verdino più chiaro */
+}
+
+.accordion-body {
+    background-color: #f8fbf6;
+}
+
+/* Icona download */
+.download-slides {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #2f6f2f;
+    text-decoration: none;
+}
+
+.download-slides:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Tabella calendario più quadrata e visibile */
+/* Tabella calendario più quadrata e visibile */
+.calendar-table {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    table-layout: auto;
+    font-size: 0.9rem;
+}
+
+/* Celle leggermente più basse */
+.calendar-table td,
+.calendar-table th {
+    width: 14.28%;
+    height: 70px;   /* Altezza leggermente ridotta */
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 600;
+    padding: 0.25rem;
+}
+
+/* Celle dei corsi colorate */
+.calendar-day.bg-primary,
+.course-mindfulness { background-color: #0d6efd; color: #fff; }
+.calendar-day.bg-success,
+.course-intuition { background-color: #198754; color: #fff; }
+.calendar-day.bg-pink,
+.course-procrastination { background-color: #e83e8c; color: #fff; }
+
+/* Hover e click */
+.calendar-day {
+    cursor: pointer;
+    transition: transform 0.15s, opacity 0.15s;
+}
+.calendar-day:hover {
+    opacity: 0.85;
+    transform: scale(1.05);
+}
+
+/* Legenda */
+.calendar-legend span {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 1rem;
+    font-size: 0.9rem;
+}
+.calendar-legend i {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 6px;
+    border-radius: 3px;
+}
+
+/* Carosello: frecce sempre visibili e nere */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black; /* sfondo nero */
+    border-radius: 50%;      /* circolari */
+    width: 30px;
+    height: 30px;
+    background-size: 100%, 100%;
+}
+
+
 
