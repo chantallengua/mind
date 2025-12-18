@@ -6,39 +6,23 @@ TESTO_TXT = "testo.txt"
 OUTPUT_HTML = "output.html"
 
 
-MESI = {
-    "Gennaio": "Gennaio",
-    "Febbraio": "Febbraio",
-    "Marzo": "Marzo",
-    "Aprile": "Aprile",
-    "Maggio": "Maggio",
-    "Giugno": "Giugno",
-    "Luglio": "Luglio",
-    "Agosto": "Agosto",
-    "Settembre": "Settembre",
-    "Ottobre": "Ottobre",
-    "Novembre": "Novembre",
-    "Dicembre": "Dicembre",
-}
-
-
 def formatta_data(riga):
     """
     Converte 'Agosto 2025' in '11 Agosto 2025'
-    Usa il giorno corrente.
+    usando il giorno corrente
     """
-    oggi = datetime.now().day
+    giorno = datetime.now().day
     parti = riga.strip().split()
     if len(parti) == 2:
         mese, anno = parti
-        return f"{oggi} {mese} {anno}"
+        return f"{giorno} {mese} {anno}"
     return riga.strip()
 
 
 def trasforma_stili(testo):
     """
-    *grassetto* -> <b>
-    _corsivo_   -> <i>
+    *testo* -> <b>
+    _testo_ -> <i>
     """
     testo = re.sub(r"\*(.*?)\*", r"<b>\1</b>", testo)
     testo = re.sub(r"_(.*?)_", r"<i>\1</i>", testo)
@@ -49,7 +33,7 @@ def processa_testo():
     with open(TESTO_TXT, "r", encoding="utf-8") as f:
         righe = [r.rstrip() for r in f.readlines()]
 
-    titolo = righe[0]
+    titolo = righe[0].strip()
     data = formatta_data(righe[1])
 
     corpo = []
@@ -57,7 +41,7 @@ def processa_testo():
     bib_counter = 1
     in_biblio = False
     lista_attiva = False
-    ul_buffer = []
+    buffer_lista = []
 
     i = 2
     while i < len(righe):
@@ -66,9 +50,9 @@ def processa_testo():
         if not riga:
             if lista_attiva:
                 corpo.append("<ul>")
-                corpo.extend(ul_buffer)
+                corpo.extend(buffer_lista)
                 corpo.append("</ul>")
-                ul_buffer = []
+                buffer_lista = []
                 lista_attiva = False
             i += 1
             continue
@@ -98,7 +82,7 @@ def processa_testo():
         if riga.startswith("- ") or riga.startswith("• "):
             lista_attiva = True
             contenuto = trasforma_stili(riga[2:])
-            ul_buffer.append(f"<li>{contenuto}</li>")
+            buffer_lista.append(f"<li>{contenuto}</li>")
             i += 1
             continue
 
@@ -109,7 +93,7 @@ def processa_testo():
 
     if lista_attiva:
         corpo.append("<ul>")
-        corpo.extend(ul_buffer)
+        corpo.extend(buffer_lista)
         corpo.append("</ul>")
 
     return titolo, data, corpo, bibliografia
@@ -121,22 +105,24 @@ def genera_html():
 
     titolo, data, corpo, bibliografia = processa_testo()
 
-    nuovo_contenuto = []
+    nuovo_blocco = []
 
-    nuovo_contenuto.append(f'<p class="pill-date" id="data">{data}</p>')
-    nuovo_contenuto.append(f'<p id="titolo"><b>{titolo}</b></p>')
-    nuovo_contenuto.extend(corpo)
+    nuovo_blocco.append(f'<h2 id="titolo" class="mb-3"><b>{titolo}</b></h2>')
+    nuovo_blocco.append('<hr style="border: 2px solid #389001; margin: 20px 0;">')
+    nuovo_blocco.append(f'<p class="pill-date" id="data">{data}</p>')
+
+    nuovo_blocco.extend(corpo)
 
     if bibliografia:
-        nuovo_contenuto.append('<hr class="mt-4 mb-2">')
+        nuovo_blocco.append('<hr class="mt-4 mb-2">')
         for idx, voce in enumerate(bibliografia, start=1):
             classe = "bib first-bib" if idx == 1 else "bib"
             voce = trasforma_stili(voce)
-            nuovo_contenuto.append(
+            nuovo_blocco.append(
                 f'<p id="bib{idx}" class="{classe}">{voce}</p>'
             )
 
-    nuovo_blocco = "\n".join(nuovo_contenuto)
+    nuovo_contenuto = "\n".join(nuovo_blocco)
 
     pattern = re.compile(
         r"(<!-- Colonna a sinistra con il testo -->)(.*?)(<!-- Fine colonna a sinistra con il testo -->)",
@@ -147,7 +133,7 @@ def genera_html():
         return (
             match.group(1)
             + "\n"
-            + nuovo_blocco
+            + nuovo_contenuto
             + "\n"
             + match.group(3)
         )
@@ -160,4 +146,4 @@ def genera_html():
 
 if __name__ == "__main__":
     genera_html()
-    print("File output.html generato correttamente.")
+    print("output.html generato correttamente.")
