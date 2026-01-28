@@ -110,11 +110,11 @@ document.addEventListener('DOMContentLoaded', () => {
         y += lineHeight + 4; // più spazio tra autore e sito
 
         // SITO WEB
-        const siteUrl = 'www.ilmiosito.it';
+        const siteUrl = 'www.mentecielo.it';
         const siteWidth = doc.getTextWidth(siteUrl);
         const siteX = (pageWidth - siteWidth) / 2;
         doc.setTextColor(136,136,136);
-        doc.textWithLink(siteUrl, siteX, y, { url: 'https://www.ilmiosito.it' });
+        doc.textWithLink(siteUrl, siteX, y, { url: 'https://www.mentecielo.it' });
 
         // sottolineatura un po’ più bassa
         doc.setDrawColor(136,136,136);
