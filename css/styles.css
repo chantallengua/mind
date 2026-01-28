@@ -4390,6 +4390,14 @@ text-decoration: underline;
 .card-group > .card {
   margin-bottom: var(--bs-card-group-margin);
 }
+
+@media (max-width: 575px) {
+  .sidebar-column .card-img-top {
+    height: auto !important;       /* altezza automatica */
+    object-fit: contain !important; /* mantiene le proporzioni */
+  }
+}
+
 @media (min-width: 576px) {
   .card-group {
     display: flex;
