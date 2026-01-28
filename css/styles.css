@@ -4393,8 +4393,17 @@ text-decoration: underline;
 
 @media (max-width: 575px) {
   .sidebar-column .card-img-top {
-    height: auto !important;       /* altezza automatica */
-    object-fit: contain !important; /* mantiene le proporzioni */
+    width: 100%;                
+    height: auto;              
+    min-height: 90px;                
+    object-fit: contain;       
+    object-position: center;    
+  }
+ 
+  .sidebar-column .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 }
 
