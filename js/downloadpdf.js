@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // ====== BANNER ======
-        const bannerUrl = 'https://raw.githubusercontent.com/chantallengua/mind/refs/heads/main/assets/img/bannerpdf.png';
+        const bannerUrl = 'https://raw.githubusercontent.com/chantallengua/repository/master/banner-pdf1.jpg';
         const bannerImg = await fetch(bannerUrl)
             .then(res => res.blob())
             .then(blob => new Promise((resolve) => {
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (titleEl) {
             doc.setFont('helvetica', 'bold');
             doc.setFontSize(20);
-            doc.setTextColor(56, 144, 1);
+            doc.setTextColor(77, 122, 162);
             doc.text(titleEl.innerText, margin, y);
             y += lineHeight + 10;
 

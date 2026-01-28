@@ -12142,3 +12142,9 @@ sup a {
 .blue-line {
 	border: 2px solid #4d7aa2; margin: 20px 0;
 }
+
+.blue-download-style {
+	color:#4d7aa2; 
+	font-size: 1.5rem; 
+	padding: 0 0.5rem;
+}
