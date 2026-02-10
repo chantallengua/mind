@@ -12236,3 +12236,119 @@ sup a {
   accent-color: #4d7aa2;
 }
 
+
+
+
+
+.flipbook-container {
+  max-width: 1100px;
+  margin: 4rem auto;
+  text-align: center;
+}
+
+.ospitibook {
+  position: relative;
+  perspective: 2000px;
+  height: 420px;
+}
+
+.spread {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.spread.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.page {
+  width: 50%;
+  background: #fff;
+  padding: 2.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+  font-family: Nunito, sans-serif;
+}
+
+.page.left {
+  border-right: 1px solid #ddd;
+}
+
+.page.right {
+  border-left: 1px solid #ddd;
+}
+
+/* rilegatura */
+.ospitibook::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 24px;
+  height: 100%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0.05),
+    rgba(0,0,0,0.25)
+  );
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.35);
+  z-index: 3;
+}
+
+/* testi */
+.page h3 {
+  margin-bottom: 1.2rem;
+}
+
+.page p {
+  line-height: 1.7;
+}
+
+.author {
+  margin-top: 1.6rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #777;
+}
+
+/* controlli */
+.ospitibook-controls {
+  margin-top: 1.5rem;
+}
+
+.ospitibook-controls button {
+  font-size: 1.8rem;
+  padding: 0.3rem 1rem;
+  margin: 0 0.5rem;
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .ospitibook {
+    height: auto;
+  }
+
+  .spread {
+    flex-direction: column;
+  }
+
+  .page {
+    width: 100%;
+    border: none;
+    margin-bottom: 1rem;
+  }
+
+  .ospitibook::after {
+    display: none;
+  }
+}
