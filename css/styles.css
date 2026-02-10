@@ -133,7 +133,7 @@ h1, .h1 {
 }
 
 h2, .h2 {
-  font-size: calc(1.325rem + 0.9vw);
+  font-size: calc(1.325rem + 0.9vw);  
 }
 @media (min-width: 1200px) {
   h2, .h2 {
@@ -143,6 +143,7 @@ h2, .h2 {
 
 h3, .h3 {
   font-size: calc(1.3rem + 0.6vw);
+  color: #4d7aa2;      
 }
 @media (min-width: 1200px) {
   h3, .h3 {
@@ -152,6 +153,7 @@ h3, .h3 {
 
 h4, .h4 {
   font-size: calc(1.275rem + 0.3vw);
+   color: #4d7aa2;  
 }
 @media (min-width: 1200px) {
   h4, .h4 {
@@ -161,6 +163,7 @@ h4, .h4 {
 
 h5, .h5 {
   font-size: 1.25rem;
+   color: #4d7aa2;  
 }
 
 h6, .h6 {
@@ -255,7 +258,7 @@ a {
   text-decoration: underline;
 }
 a:hover {
-  color: var(--bs-link-hover-color);
+  color: #35608c;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -11813,8 +11816,7 @@ body {
 .pillole p {
 	margin-bottom: 0.5rem; 
 	text-indent: 1em;
-	text-align: justify;
-	font-size: calc(1.375rem - 1.3vw);
+	text-align: justify; 
 }
 
 
@@ -11825,7 +11827,7 @@ body {
 }
 
 .pill-date {
-	font-size: calc(1.375rem - 1.3vw);
+ 
 	margin-bottom: 2.5rem !important;
 	text-indent: 0 !important;
 }
@@ -11977,6 +11979,11 @@ sup a {
   border-radius: 0.375rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.textarea-ospiti {
+  min-height: 200px;     
+  resize: vertical;    
 }
 
 .form-input::placeholder,
@@ -12165,3 +12172,67 @@ sup a {
 	font-size: 1.5rem; 
 	padding: 0 0.5rem;
 }
+
+
+.mini-blue-btn {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.70rem;
+  font-weight: 400;
+  color: #4d7aa2;
+  background-color: rgba(77, 122, 162, 0.12);
+  padding: 2px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mini-blue-btn:hover {
+  background-color: rgba(77, 122, 162, 0.2);
+  box-shadow: 0 2px 6px rgba(77, 122, 162, 0.25);
+}
+
+.medium-blue-btn {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 400;
+  color: #4d7aa2;
+  background-color: rgba(77, 122, 162, 0.2);
+  padding: 10px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.medium-blue-btn:hover {
+  background-color: rgba(77, 122, 162, 0.35); 
+  box-shadow: 0 2px 6px rgba(77, 122, 162, 0.3);
+}
+
+
+/* Libro degli Ospiti */
+.checkbox-group {
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+  padding: 12px;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.checkbox-title {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.checkbox-row input[type="checkbox"] {
+  accent-color: #4d7aa2;
+}
+
