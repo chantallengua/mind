@@ -174,62 +174,59 @@
   
   <!-- Carta 1 grande -->
   <div class="card text-center mt-0 pt-0 mb-2" style="width: 100%;  border-color: white">
-    
-	<form class="pt-0 mt-0" action="https://api.web3forms.com/submit" method="POST">
-  <input type="hidden" name="access_key" value="e1c14d69-dd17-4bb4-8079-63f63ef0ad43">
   
+  <form id="newsletter-form" class="newsletter-form" action="https://api.web3forms.com/submit" method="POST">
+
+  <input type="hidden" name="access_key" value="e1c14d69-dd17-4bb4-8079-63f63ef0ad43" />
   <input type="hidden" name="subject" value="New Contact Form Submission from Web3Forms" />
   <input type="hidden" name="from_name" value="My Website" />
 
   <div class="form-group-container form-signup">
-    <div class="form-group">      
-      <input id="name" name="name" class="form-input" placeholder="Inserisci il tuo nome (opzionale)..." type="text" />
-    </div>
-    <div class="form-group">      
-      <input id="email" name="email" class="form-input" placeholder="Inserisci la tua email (opzionale)..." type="email" />
-    </div>    
-	<div class="form-group checkbox-group">
-  <label class="checkbox-title">Il commento è relativo a:</label>
+		<div class="form-group">      
+		  <input id="name" name="name" class="form-input" placeholder="Inserisci il tuo nome (opzionale)..." type="text" />
+		</div>
+		<div class="form-group">      
+		  <input id="email" name="email" class="form-input" placeholder="Inserisci la tua email (opzionale)..." type="email" />
+		</div>   
+		<div class="form-group checkbox-group-ospiti">
+		  <label class="checkbox-title">Il commento è relativo a:</label>
+			  <div class="checkbox-row">
+				<input type="checkbox" id="corsomindfulnessbasic" name="interest" value="corsomindfulnessbasic" />
+				<label for="corso">Corso di Mindfulness Basic</label>
+			  </div>
 
-  <div class="checkbox-row">
-    <input type="checkbox" id="corsomindfulnessbasic" name="interest" value="corsomindfulnessbasic" />
-    <label for="corso">Corso di Mindfulness Basic</label>
-  </div>
+			  <div class="checkbox-row">
+				<input type="checkbox" id="telegram" name="interest" value="telegram" />
+				<label for="telegram">Gruppo Telegram</label>
+			  </div>
 
-  <div class="checkbox-row">
-    <input type="checkbox" id="telegram" name="interest" value="telegram" />
-    <label for="telegram">Gruppo Telegram</label>
-  </div>
+			  <div class="checkbox-row">
+				<input type="checkbox" id="coaching" name="interest" value="coaching" />
+				<label for="coaching">Coaching Personale</label>
+			  </div>
 
-  <div class="checkbox-row">
-    <input type="checkbox" id="coaching" name="interest" value="coaching" />
-    <label for="coaching">Coaching Personale</label>
-  </div>
+			  <div class="checkbox-row">
+				<input type="checkbox" id="ritiro2025" name="interest" value="ritiro2025" />
+				<label for="ritiro2025">Ritiro 2025</label>
+			  </div>
 
-  <div class="checkbox-row">
-    <input type="checkbox" id="ritiro2025" name="interest" value="ritiro2025" />
-    <label for="ritiro2025">Ritiro 2025</label>
-  </div>
+			  <div class="checkbox-row">
+				<input type="checkbox" id="ritiro2026" name="interest" value="ritiro2026" />
+				<label for="ritiro2026">Ritiro 2026</label>
+			  </div>
 
-  <div class="checkbox-row">
-    <input type="checkbox" id="ritiro2026" name="interest" value="ritiro2026" />
-    <label for="ritiro2026">Ritiro 2026</label>
-  </div>
-
-  <div class="checkbox-row">
-    <input type="checkbox" id="altro" name="interest[]" value="altro">
-    <label for="altro">Altro</label>
-  </div>
-</div>
-	 <div class="form-group"> 
-	<textarea name="message" class="form-input textarea-ospiti"  required placeholder="Inserisci il tuo commento..." ></textarea>	
-  </div>
-  </div>
-  
-  
+			  <div class="checkbox-row">
+				<input type="checkbox" id="altro" name="interest[]" value="altro">
+				<label for="altro">Altro</label>
+			  </div>
+		</div>
+	</div>    
+	  </div>
   <button class="form-submit btn btn-primary" type="submit">Invia</button>
   <div id="form-message" style="margin-top: 1em; color: green;"></div>
 </form>
+  
+    
 
     <div class="card-body p-2">
       <p  style="font-size: 0.9em;"> In alternativa, se preferisci, puoi inviare una mail a <a href="mailto:antonio@mentecielo.it">antonio@mentecielo.it</a> !</p>
