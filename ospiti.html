@@ -173,7 +173,7 @@
 		  <h5 class="pt-0"><b>Lascia anche tu il tuo passaggio sul libro degli ospiti:</b></h5>
   
   <!-- Carta 1 grande -->
-  <div class="card text-center mt-0 pt-0 mb-2" style="width: 100%;  border-color: white">
+  <div class="card text-center mt-0 pt-0 mb-0" style="width: 100%;  border-color: white">
   
   <form id="newsletter-form" class="newsletter-form" action="https://api.web3forms.com/submit" method="POST">
 
@@ -190,6 +190,7 @@
 		</div>   
 		<div class="form-group checkbox-group-ospiti">
 		  <label class="checkbox-title">Il commento è relativo a:</label>
+			  
 			  <div class="checkbox-row">
 				<input type="checkbox" id="corsomindfulnessbasic" name="interest" value="corsomindfulnessbasic" />
 				<label for="corsomindfulnessbasic">Corso di Mindfulness Basic</label>
@@ -220,7 +221,11 @@
 				<label for="altro">Altro</label>
 			  </div>
 		</div>
+			 <div class="form-group"> 
+	<textarea name="message" class="form-input textarea-ospiti"  required placeholder="Inserisci il tuo commento..." ></textarea>	
+  </div>
 	</div>    
+	
 	  </div>
   <button class="form-submit btn btn-primary" type="submit">Invia</button>
   <div id="form-message" style="margin-top: 1em; color: green;"></div>
@@ -406,12 +411,15 @@ render();
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('newsletter-form'); // stesso id del form ospiti
+  const form = document.getElementById('newsletter-form');
   const messageDiv = document.getElementById('form-message');
 
   // Stile iniziale del messaggio
-  messageDiv.style.color = 'white';
+  messageDiv.style.color = 'black';
+  messageDiv.style.fontSize = '0.85em';
+  messageDiv.style.marginLeft = '0.5em';
   messageDiv.style.paddingTop = '1em';
+  messageDiv.style.paddingBottom = '1em';
   messageDiv.style.transition = 'opacity 0.5s ease';
   messageDiv.style.opacity = 0;
 
@@ -422,7 +430,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mostra messaggio provvisorio
     messageDiv.style.opacity = 1;
-    messageDiv.style.color = 'white';
     messageDiv.textContent = 'Invio in corso...';
 
     fetch(form.action, {
@@ -432,11 +439,9 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(data => {
       if(data.success) {
-        messageDiv.style.color = 'white';
         messageDiv.textContent = 'Messaggio inviato con successo! Grazie per il tuo commento.';
         form.reset();
       } else {
-        messageDiv.style.color = 'white';
         messageDiv.textContent = 'Errore nell\'invio del messaggio. Riprova.';
       }
 
@@ -446,7 +451,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 5000);
     })
     .catch(error => {
-      messageDiv.style.color = 'white';
       messageDiv.textContent = 'Errore nella connessione. Riprova.';
       console.error(error);
       setTimeout(() => {
@@ -456,6 +460,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+
+
 
 		
 
