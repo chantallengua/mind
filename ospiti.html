@@ -192,7 +192,7 @@
 		  <label class="checkbox-title">Il commento è relativo a:</label>
 			  <div class="checkbox-row">
 				<input type="checkbox" id="corsomindfulnessbasic" name="interest" value="corsomindfulnessbasic" />
-				<label for="corso">Corso di Mindfulness Basic</label>
+				<label for="corsomindfulnessbasic">Corso di Mindfulness Basic</label>
 			  </div>
 
 			  <div class="checkbox-row">
@@ -403,6 +403,60 @@ function prevPage(){
 
 render();
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('newsletter-form'); // stesso id del form ospiti
+  const messageDiv = document.getElementById('form-message');
+
+  // Stile iniziale del messaggio
+  messageDiv.style.color = 'white';
+  messageDiv.style.paddingTop = '1em';
+  messageDiv.style.transition = 'opacity 0.5s ease';
+  messageDiv.style.opacity = 0;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // blocca l'invio normale del form
+
+    const formData = new FormData(form);
+
+    // Mostra messaggio provvisorio
+    messageDiv.style.opacity = 1;
+    messageDiv.style.color = 'white';
+    messageDiv.textContent = 'Invio in corso...';
+
+    fetch(form.action, {
+      method: form.method,
+      body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+      if(data.success) {
+        messageDiv.style.color = 'white';
+        messageDiv.textContent = 'Messaggio inviato con successo! Grazie per il tuo commento.';
+        form.reset();
+      } else {
+        messageDiv.style.color = 'white';
+        messageDiv.textContent = 'Errore nell\'invio del messaggio. Riprova.';
+      }
+
+      // Fa scomparire il messaggio dopo 5 secondi
+      setTimeout(() => {
+        messageDiv.style.opacity = 0;
+      }, 5000);
+    })
+    .catch(error => {
+      messageDiv.style.color = 'white';
+      messageDiv.textContent = 'Errore nella connessione. Riprova.';
+      console.error(error);
+      setTimeout(() => {
+        messageDiv.style.opacity = 0;
+      }, 5000);
+    });
+  });
+});
+</script>
+
 		
 
 
