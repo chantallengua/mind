@@ -12409,9 +12409,9 @@ font-size: 0.85em !important;
   font-size: 1.5rem;
   padding: 0.3rem 1rem;
   margin: 0 0.5rem;
-  background: #f7f4ee;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  background: #fdfdfd;
+  border: 1px solid #ebe9e9;
+  border-radius: 10px;
   cursor: pointer;
 }
 
