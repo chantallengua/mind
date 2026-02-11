@@ -12290,8 +12290,16 @@ font-size: 0.85em !important;
 
  .flipbook-container {
   max-width: 1100px;
-  margin: 4rem auto;
   text-align: center;
+}
+
+.flipbook-container {
+  background-image: url('assets/img/carta.jpg');
+  background-size: cover;       /* o 'repeat' se texture piccola */
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2rem;                /* per distanziare le pagine dai bordi */
+  border-radius: 8px;           /* opzionale, effetto morbido */
 }
 
 .ospitibook {
@@ -12316,7 +12324,12 @@ font-size: 0.85em !important;
 .ospitibook .page {
   width: 50%;
   padding: 2rem;
-  background: #fffdf2; /* carta più chiara */
+    background-image: url('../assets/img/carta.jpg');
+  background-size: cover;       /* o 'repeat' se texture piccola */
+  background-position: bottom;
+  background-repeat: no-repeat;
+  padding: 2rem;                /* per distanziare le pagine dai bordi */
+  border-radius: 8px;           /* opzionale, effetto morbido */
   border-radius: 8px;
   box-shadow: 0 8px 18px rgba(0,0,0,0.12);
   font-family: Nunito, sans-serif;
