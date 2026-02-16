@@ -11559,31 +11559,31 @@ body {
 }
 
 .cover3 {
-  background-image: url('../assets/img/placeholder.jpg');
+  background-image: url('../assets/img/3.jpg');
 }
 
 .cover4 {
-  background-image: url('../assets/img/placeholder.jpg');
+  background-image: url('../assets/img/4.jpg');
 }
 
 .cover5 {
-  background-image: url('../assets/img/placeholder.jpg');
+  background-image: url('../assets/img/5.jpg');
 }
 
 .cover6 {
-  background-image: url('../assets/img/placeholder.jpg');
+  background-image: url('../assets/img/6.jpg');
 }
 
 .cover7 {
-  background-image: url('../assets/img/placeholder.jpg');
+  background-image: url('../assets/img/7.jpg');
 }
 
 .cover8 {
-  background-image: url('../assets/img/placeholder.jpg');
+  background-image: url('../assets/img/8.jpg');
 }
 
 .cover9 {
-  background-image: url('../assets/img/placeholder.jpg');
+  background-image: url('../assets/img/9.jpg');
 }
 
 .cover10 {
@@ -12033,7 +12033,9 @@ sup a {
 .verde {	background-color: #80cbc4;	}
 .lilla {	background-color: #9fa8da;	}
 .arancio {	background-color: #ffb74d;	}
+.azzurro {	background-color: #81d4fa;	}
 .rosa {		background-color: #f48fb1;	}
+.rosso { 	background-color: #e57373;}
 .blue-telegram { color: #24A1DE; }
 .blue-telegram:hover { color: #1c80b1; }
 .blue-zoom { color:#0B5CFF; }
@@ -12585,3 +12587,31 @@ font-size: 0.85em !important;
   }
 }
  
+ 
+ 
+ .badge-new {
+    background-color: #e57373;
+    color: white;
+    font-size: 0.60rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 4px 8px;
+    border-radius: 4px;
+    line-height: 1;
+
+    position: relative;
+    top: -13px;   /* regola questo valore */
+}
+
+
+.img-ritiri-project {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left bottom;
+}

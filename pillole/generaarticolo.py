@@ -6,19 +6,6 @@ TESTO_TXT = "testo.txt"
 OUTPUT_HTML = "output.html"
 
 
-def formatta_data(riga):
-    """
-    Converte 'Agosto 2025' in '11 Agosto 2025'
-    usando il giorno corrente
-    """
-    giorno = datetime.now().day
-    parti = riga.strip().split()
-    if len(parti) == 2:
-        mese, anno = parti
-        return f"{giorno} {mese} {anno}"
-    return riga.strip()
-
-
 def trasforma_stili(testo):
     """
     *testo* -> <b>
@@ -34,7 +21,6 @@ def processa_testo():
         righe = [r.rstrip() for r in f.readlines()]
 
     titolo = righe[0].strip()
-    data = formatta_data(righe[1])
 
     corpo = []
     bibliografia = []
@@ -43,7 +29,7 @@ def processa_testo():
     lista_attiva = False
     buffer_lista = []
 
-    i = 2
+    i = 1
     while i < len(righe):
         riga = righe[i].strip()
 
@@ -96,20 +82,19 @@ def processa_testo():
         corpo.extend(buffer_lista)
         corpo.append("</ul>")
 
-    return titolo, data, corpo, bibliografia
+    return titolo, corpo, bibliografia
 
 
 def genera_html():
     with open(MASTER_HTML, "r", encoding="utf-8") as f:
         master = f.read()
 
-    titolo, data, corpo, bibliografia = processa_testo()
+    titolo, corpo, bibliografia = processa_testo()
 
     nuovo_blocco = []
 
     nuovo_blocco.append(f'<h2 id="titolo" class="mb-3"><b>{titolo}</b></h2>')
     nuovo_blocco.append('<hr style="border: 2px solid #389001; margin: 20px 0;">')
-    nuovo_blocco.append(f'<p class="pill-date" id="data">{data}</p>')
 
     nuovo_blocco.extend(corpo)
 

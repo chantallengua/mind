@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => { 
+document.addEventListener('DOMContentLoaded', () => {
     const { jsPDF } = window.jspdf;
 
     const downloadLink = document.querySelector('a[href$="articolo.pdf"]');
@@ -8,11 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
 
         const doc = new jsPDF('p', 'pt', 'a4');
-        const margin = 60; 
+        const margin = 60;
         const lineHeight = 16;
         const pageWidth = doc.internal.pageSize.width;
         const pageHeight = doc.internal.pageSize.height;
-
         let x = margin;
         let y = margin;
 
@@ -23,15 +22,36 @@ document.addEventListener('DOMContentLoaded', () => {
             if (p.classList.contains('pill-date')) return;
 
             const words = [];
+
             const parseNode = (node) => {
                 if (node.nodeName === 'B') {
-                    node.textContent.split(/(\s+)/).forEach(w => words.push({ text: w, bold: w.trim() !== '', italic: false, link: null }));
+                    node.textContent.split(/(\s+)/).forEach(w => words.push({
+                        text: w,
+                        bold: w.trim() !== '',
+                        italic: false,
+                        link: null
+                    }));
                 } else if (node.nodeName === 'I') {
-                    node.textContent.split(/(\s+)/).forEach(w => words.push({ text: w, bold: false, italic: w.trim() !== '', link: null }));
+                    node.textContent.split(/(\s+)/).forEach(w => words.push({
+                        text: w,
+                        bold: false,
+                        italic: w.trim() !== '',
+                        link: null
+                    }));
                 } else if (node.nodeName === 'A') {
-                    node.textContent.split(/(\s+)/).forEach(w => words.push({ text: w, bold: false, italic: false, link: w.trim() !== '' ? node.href : null }));
+                    node.textContent.split(/(\s+)/).forEach(w => words.push({
+                        text: w,
+                        bold: false,
+                        italic: false,
+                        link: w.trim() !== '' ? node.href : null
+                    }));
                 } else if (node.nodeType === Node.TEXT_NODE) {
-                    node.textContent.split(/(\s+)/).forEach(w => words.push({ text: w, bold: false, italic: false, link: null }));
+                    node.textContent.split(/(\s+)/).forEach(w => words.push({
+                        text: w,
+                        bold: false,
+                        italic: false,
+                        link: null
+                    }));
                 } else if (node.childNodes.length > 0) {
                     node.childNodes.forEach(parseNode);
                 }
@@ -77,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     doc.text(word.text, x, y);
                 }
+
                 x += textWidth;
             });
 
@@ -94,10 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 reader.readAsDataURL(blob);
             }));
 
-        const bannerWidth = pageWidth;  
-        const bannerHeight = 50;        
+        const bannerWidth = pageWidth;
+        const bannerHeight = 50;
         doc.addImage(bannerImg, 'JPEG', 0, 0, bannerWidth, bannerHeight);
-        y = bannerHeight + 40; 
+        y = bannerHeight + 40;
 
         // AUTORE
         const authorName = 'Antonio Lengua';
@@ -106,8 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         doc.setTextColor(136,136,136);
         const authorWidth = doc.getTextWidth(authorName);
         doc.text(authorName, (pageWidth - authorWidth) / 2, y);
-
-        y += lineHeight + 4; // più spazio tra autore e sito
+        y += lineHeight + 4;
 
         // SITO WEB
         const siteUrl = 'www.mentecielo.it';
@@ -116,11 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
         doc.setTextColor(136,136,136);
         doc.textWithLink(siteUrl, siteX, y, { url: 'https://www.mentecielo.it' });
 
-        // sottolineatura un po’ più bassa
         doc.setDrawColor(136,136,136);
         doc.setLineWidth(0.3);
         doc.line(siteX, y + 2.5, siteX + siteWidth, y + 2.5);
-
         y += lineHeight;
 
         // LINEA SEPARATRICE
@@ -131,8 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const lineEnd = pageWidth - margin - 40;
         doc.line(lineStart, y + linePadding, lineEnd, y + linePadding);
         y += lineHeight + linePadding * 2;
-
-        y += 20; 
+        y += 20;
 
         // Titolo
         const titleEl = content.querySelector('h2');
@@ -157,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
             doc.setFontSize(10);
             doc.setTextColor(136,136,136);
             doc.text(dateEl.innerText, margin, y);
-            y += lineHeight + 25; 
+            y += lineHeight + 25;
         }
 
         // Corpo testo
