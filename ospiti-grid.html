@@ -15,20 +15,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
 
-		<style>
-        .page {
-            transition: opacity 0.4s ease-in-out;
-        }
-        .page.flipping {
-            opacity: 0.5;
-        }
-		#page-indicator {
-		font-family: 'Varela Round', sans-serif;
-		font-size: 0.9rem;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		}
-		</style>	
+
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -126,57 +113,9 @@
 						</div>
 						
 
-					<div class="flipbook-container">
-
-					  <div class="ospitibook">
-
-						<!-- PAGINA SINISTRA -->
-						<div class="page left" id="left-page">
-						  <div class="comment" id="left-comment1">
-							<h4></h4>
-							<p></p>
-							<div class="author"></div>
-						  </div>
-						  <div class="comment" id="left-comment2">
-							<h4></h4>
-							<p></p>
-							<div class="author"></div>
-						  </div>
-						  <div class="comment" id="left-comment3">
-							<h4></h4>
-							<p></p>
-							<div class="author"></div>
-						  </div>
-						</div>
-
-						<!-- PAGINA DESTRA -->
-						<div class="page right" id="right-page">
-						  <div class="comment" id="right-comment1">
-							<h4></h4>
-							<p></p>
-							<div class="author"></div>
-						  </div>
-						  <div class="comment" id="right-comment2">
-							<h4></h4>
-							<p></p>
-							<div class="author"></div>
-						  </div>
-						  <div class="comment" id="right-comment3">
-							<h4></h4>
-							<p></p>
-							<div class="author"></div>
-						  </div>
-						</div>
-
-					  </div>
-
-					  <div class="book-controls">
-						<button onclick="prevPage()">‹</button>
-						<span id="page-indicator" style="margin: 0 15px; font-weight: bold; color: #666;"></span>
-						<button onclick="nextPage()">›</button>
-					  </div>
-
-					</div>
+<div class="board-container">
+  <div id="guest-board" class="guest-board"></div>
+</div>
 
 						
                 </div>
@@ -333,129 +272,84 @@
 		
 		
 <script>
-const pages = [
-  // COPPIA 1
-  {
-    left: [
-      {title:"Corso Mindfulness per Traders", text:"Capire come la respirazione possa essere un interruttore di stato mentale, fornisce un potente strumento operativo.", author:"— Fabio G., febbraio 2026"},
-      {title:"Corso Mindfulness basic", text:"Mi sono iscritto a questo corso Mindfulness for Traders in preda a molti dubbi, nonostante le tante segnalazioni positive ricevute recentemente da operatori qualificati, ma ora, gradualmente, sto acquisendo piena consapevolezza dell'efficacia della meditazione per affrontare e superare gli innumerevoli bias cognitivi che spesso annebbiano e penalizzano la nostra quotidianità.", author:"— Massimo Manzoni, febbraio 2026"},
-      {title:"", text:"", author:""}
-    ],
-    right: [
-      {title:"Corso Mindfulness Basic, Telegram", text:"Quando mi sono unito al gruppo meditavo già da tempo, ma mi mancava la costanza. È stata proprio la frequentazione di “Meditiamo Insieme” a darmi quella continuità che da solo non riuscivo a mantenere. L’appuntamento fisso è diventato un punto di riferimento non solo per imparare a meditare meglio, ma soprattutto per portare la pratica nella vita quotidiana. Le meditazioni, sia quelle più generali che quelle mirate, mi hanno aiutato a sviluppare maggiore lucidità, presenza e controllo, anche nel trading e nelle situazioni di stress.Dopo un anno di pratica costante ho seguito anche il corso, che mi ha permesso di consolidare i concetti, chiarire molti dubbi e portare la meditazione a un livello più profondo e consapevole.Ringrazio Antonio per la disponibilità, l’ascolto e la qualità del suo insegnamento. È un percorso che consiglio a chiunque voglia lavorare seriamente su se stesso e costruire una pratica solida e costante nel tempo.", author:"— Peppe, febbraio 2026"},
-    ]
-  },
-  // COPPIA 2
-  {
-    left: [
-      {title:"corso mindfulness basic,telegram,Ritiro maggio 2025", text:"grazie alla meditazione e agli insegnamenti di toni, sono rinato e cambiato il mio io interiore,l'arma piu potente a questo mondo è la disciplina e la perseveranza nel perseguire questo percorso, ormai sembra ieri in cui ho fatto un corso di mindfullness con toni ma so passati gia 2 anni e quanti ancora passeranno per potenziare e creare un nuovo me, piu felice e piu mite.Sto grazie alla meditazione riuscendo anche nel mio intento di aspirante trader. In conclusione consiglio vivamente questo percorso interiore che puo cambiare letteralmente la vita di ognuno di noi.", author:"— Alberto, febbraio 2026"},
-      {title:"Ritiro maggio 2025", text:"Luogo di pace, per ritrovare spazio, respiro e misura: grazie di cuore a voi due, custodi attenti, per la cura e la presenza gentile con cui rendete possibile tutto ciò. Che il Buen Retiro fiorisca con equilibrio e consapevolezza, radicata nella presenza e nello spirito, e possa offrire a molti un sentiero di pratica, quiete interiore e autentico satori", author:"Paolo Ziggiotto — febbraio 2026."},
-    ],
-    right: [
-      {title:"telegram, Ritiro maggio 2025", text:"Medito, con grandi benefici in termini di attenzione, consapevolezza e presenza mentale, dall'inizio di questo viaggio proposto da Antonio. Ho, quindi, subito aderito alla proposta del ritiro. Un weekend di meditazione in un posto veramente molto bello. Non conoscevo nessuno personalmente ma ho avuto subito la sensazione di essere a casa. Tutti insieme tra cibo, passeggiate nel bosco e meditazioni guidate da Antonio e Chantal. Sono ripartito contrastando l'attaccamento...", author:"- Maurizio - febbraio 2026"},
-      {title:"Ritiro febbraio 2026", text:"Sono stati giorni di grande nutrimento per il corpo, il cuore, l'anima. Silenzio, meditazione, camminate nel bosco, condivisione, qualche lacrima ma anche tante risate, buon cibo ( Antonio chef bravissimo), il tutto in un luogo in cui ti senti subito a casa e circondato da una natura potente. Non posso che ringraziare Antonio, i miei compagni di viaggio, e soprattutto la vita per questa profonda esperienza.", author:"— Laura M. - 23 febbr 2026"},
-    ]
-  },
-  // COPPIA 3
-  {
-    left: [
-      {title:"Ritiro febbr 2026", text:"Mi aspettavo un weekend di solo meditazione e teorie buddiste. Ma è stato molto di più. Grazie ad Antonio che mette tutto se stesso nel trasmettere la sua pluridecennale esperienza di pratica meditativa. E l'accoglienza non è da meno. Bastano pochi minuti in questa splendida casa e ti senti già a casa tua. Grazie Antonio mi sa che ci vedremo presto", author:"— Claudio Guerrini - 23 febbr 2026"},
-      {title:"Corso mindfulness basic", text:"Dopo oltre 10 anni di trading istituzionale (ho 40 anni) ho conosciuto Antonio che grazie al suo corso di mindfulness mi ha aiutato a creare una routine quotidiana fondamentale per lavorare con più lucidità e serenità. Inoltre, le pratiche insegnate da Antonio sono risultate indispensabili nel riprendermi emotivamente ed economicamente da grosse perdite. Consiglio i suoi corsi a chi come me è un trader istituzionale o anche a chi lo fa come retail trader.", author:"— Giacomo U. - 24 febb 2026"},
-    ],
-    right: [
-      {title:"Ritiro febbraio 2026", text:"Sono partito per il week end da antonio con tanta curiosita’ e qualche briciola di dubbio che ho sempre quando vado vs posti e persone sconosciute. Rapidamente ho scoperto che il posto faceva sentirsi come a casa, ma in una location molto piu bella e gli sconosciuti erano degli amici. Ogni attivita svolta, anche le piu banale quali dividersi i compiti per apparecchiare la tavola, avevano un senso di comunita’ e condivisione . Se il valore di una cosa si potesse misurarsi dalla percezione del tempo che trascorre nel farlo , quello del week end e’ letteralmente volato ed arrivato troppo presto il momento di ripartire, Credo che basti questo per esprimere quello che ho provato.", author:"— Fabrizio Porro - Como - 23 febbr 2026"},
-    ]
-  },
-    // COPPIA 4
-  {
-    left: [
-    {title:"Corso Mindfulness per traders gen-feb 2026", text:"Concluso stasera il corso mindfulness per traders, e come tutte le iniziative di Antonio, dei momenti di grande valore formativo ed umano. Un'occasione per riflettere sui molti meccanismi che possono indurre a comportamenti dannosi nel trading, ma anche una formazione per un approccio piu' consapevole agli eventi della vita.", author:" - Fabrizio Porro - 25 febb 2026"},
-	{title:"Corso Mindfulness per traders gen-feb 2026", text:"Abituati come siamo ad avere risposte in breve tempo su qualsiasi cosa pensiamo che anche la meditazione si possa imparare in poco tempo. O che basti in corso di cinque incontri per aver capito tutto. Non è così. Serve tanto tanto allenamento e tanta sperimentazione. Ma i risultati, anche se sottili, si cominciano a vedere da subito e ti incentivano a proseguire nel percorso di crescita. Questo corso è la base di partenza di questo percorso.", author:" - Claudio Guerrini, Macerata - 27 febb 2026"},
-    ],
-    right: [
-    {title:"Corso Mindfulness per traders, Telegram", text:"Conosco Antonio da molto tempo prima per il trading in seguito per la mindfulness.. nel corso degli anni ho partecipato a diversi corsi di mindfulness sia online che in presenza. Castagnola è un piccolo angolo di pace sospeso nel tempo immerso in una natura incontaminata. Seppur vicina a Genova e la costa ligure, per la sua posizione nascosta in un'anfiteatro naturale tra i boschi e le montagne dell'entroterra ligure, si presta davvero a meraviglia per ritiri meditativi e tutte quelle attività dove mettere al centro se stessi e la ricerca di un momento da dedicare alla nostra crescita personale o semplicemente ritrovare quell'equilibrio che la frenesia del lavoro e della vita di tutti i giorni tende ad alterare. Antonio è un maestro brillante e coinvolgente oltre che essere una persona molto simpatica con cui diventa facilmente piacevole conversare e trascorrere del tempo in compagnia di gruppi di persone stimolanti in cui si crea subito amicizia ed empatia. Tornerò sicuramente a frequentare i suoi corsi e soprattutto uno dei suoi ritiri!", author:" - Andrea Franzi, Genova - 26 febb 2026"},
-    ]
-  },
-  {
-    left: [
-    {title:"Corso Mindfulness per traders gen-feb 2026", text:"Ho partecipato a questo corso di mindfulness con un po’ di curiosità, senza sapere che ne sarei uscito davvero arricchito.Il corso è ben strutturato, chiaro e profondo. Mi ha dato strumenti concreti per gestire lo stress e le emozioni con maggiore consapevolezza. Esperienza che consiglio vivamente.", author:" - Lorenzo S. - 27 febb 2026"},
-    ],
-    right: [
-    ]
-  },
+const commentsData = [
+
+{title:"Corso Mindfulness per Traders",
+text:"Capire come la respirazione possa essere un interruttore di stato mentale, fornisce un potente strumento operativo.",
+author:"— Fabio G., febbraio 2026"},
+
+{title:"Corso Mindfulness basic",
+text:"Mi sono iscritto a questo corso Mindfulness for Traders in preda a molti dubbi, nonostante le tante segnalazioni positive ricevute recentemente da operatori qualificati, ma ora, gradualmente, sto acquisendo piena consapevolezza dell'efficacia della meditazione per affrontare e superare gli innumerevoli bias cognitivi che spesso annebbiano e penalizzano la nostra quotidianità.",
+author:"— Massimo Manzoni, febbraio 2026"},
+
+{title:"Corso Mindfulness Basic, Telegram",
+text:"Quando mi sono unito al gruppo meditavo già da tempo, ma mi mancava la costanza. È stata proprio la frequentazione di “Meditiamo Insieme” a darmi quella continuità che da solo non riuscivo a mantenere. L’appuntamento fisso è diventato un punto di riferimento non solo per imparare a meditare meglio, ma soprattutto per portare la pratica nella vita quotidiana. Le meditazioni, sia quelle più generali che quelle mirate, mi hanno aiutato a sviluppare maggiore lucidità, presenza e controllo, anche nel trading e nelle situazioni di stress. Dopo un anno di pratica costante ho seguito anche il corso, che mi ha permesso di consolidare i concetti, chiarire molti dubbi e portare la meditazione a un livello più profondo e consapevole. Ringrazio Antonio per la disponibilità, l’ascolto e la qualità del suo insegnamento. È un percorso che consiglio a chiunque voglia lavorare seriamente su se stesso e costruire una pratica solida e costante nel tempo.",
+author:"— Peppe, febbraio 2026"},
+
+{title:"corso mindfulness basic, telegram, Ritiro maggio 2025",
+text:"Grazie alla meditazione e agli insegnamenti di Toni, sono rinato e ho cambiato il mio io interiore. L'arma più potente a questo mondo è la disciplina e la perseveranza nel perseguire questo percorso. Ormai sembra ieri in cui ho fatto un corso di mindfulness con Toni ma sono passati già 2 anni e quanti ancora passeranno per potenziare e creare un nuovo me, più felice e più mite. Sto, grazie alla meditazione, riuscendo anche nel mio intento di aspirante trader. In conclusione consiglio vivamente questo percorso interiore che può cambiare letteralmente la vita di ognuno di noi.",
+author:"— Alberto, febbraio 2026"},
+
+{title:"Ritiro maggio 2025",
+text:"Luogo di pace, per ritrovare spazio, respiro e misura: grazie di cuore a voi due, custodi attenti, per la cura e la presenza gentile con cui rendete possibile tutto ciò. Che il Buen Retiro fiorisca con equilibrio e consapevolezza, radicata nella presenza e nello spirito, e possa offrire a molti un sentiero di pratica, quiete interiore e autentico satori.",
+author:"— Paolo Ziggiotto, febbraio 2026"},
+
+{title:"Telegram, Ritiro maggio 2025",
+text:"Medito, con grandi benefici in termini di attenzione, consapevolezza e presenza mentale, dall'inizio di questo viaggio proposto da Antonio. Ho quindi subito aderito alla proposta del ritiro. Un weekend di meditazione in un posto veramente molto bello. Non conoscevo nessuno personalmente ma ho avuto subito la sensazione di essere a casa. Tutti insieme tra cibo, passeggiate nel bosco e meditazioni guidate da Antonio e Chantal. Sono ripartito contrastando l'attaccamento...",
+author:"— Maurizio, febbraio 2026"},
+
+{title:"Ritiro febbraio 2026",
+text:"Sono stati giorni di grande nutrimento per il corpo, il cuore, l'anima. Silenzio, meditazione, camminate nel bosco, condivisione, qualche lacrima ma anche tante risate, buon cibo (Antonio chef bravissimo), il tutto in un luogo in cui ti senti subito a casa e circondato da una natura potente. Non posso che ringraziare Antonio, i miei compagni di viaggio, e soprattutto la vita per questa profonda esperienza.",
+author:"— Laura M., 23 febbraio 2026"},
+
+{title:"Ritiro febbr 2026",
+text:"Mi aspettavo un weekend di solo meditazione e teorie buddiste. Ma è stato molto di più. Grazie ad Antonio che mette tutto se stesso nel trasmettere la sua pluridecennale esperienza di pratica meditativa. E l'accoglienza non è da meno. Bastano pochi minuti in questa splendida casa e ti senti già a casa tua. Grazie Antonio, mi sa che ci vedremo presto.",
+author:"— Claudio Guerrini, 23 febbraio 2026"},
+
+{title:"Corso mindfulness basic",
+text:"Dopo oltre 10 anni di trading istituzionale (ho 40 anni) ho conosciuto Antonio che grazie al suo corso di mindfulness mi ha aiutato a creare una routine quotidiana fondamentale per lavorare con più lucidità e serenità. Inoltre, le pratiche insegnate da Antonio sono risultate indispensabili nel riprendermi emotivamente ed economicamente da grosse perdite. Consiglio i suoi corsi a chi come me è un trader istituzionale o anche a chi lo fa come retail trader.",
+author:"— Giacomo U., 24 febbraio 2026"},
+
+{title:"Ritiro febbraio 2026",
+text:"Sono partito per il weekend da Antonio con tanta curiosità e qualche briciola di dubbio che ho sempre quando vado verso posti e persone sconosciute. Rapidamente ho scoperto che il posto faceva sentirsi come a casa, ma in una location molto più bella, e gli sconosciuti erano degli amici. Ogni attività svolta, anche le più banali come dividersi i compiti per apparecchiare la tavola, avevano un senso di comunità e condivisione. Se il valore di una cosa si potesse misurare dalla percezione del tempo che trascorre nel farlo, quello del weekend è letteralmente volato ed è arrivato troppo presto il momento di ripartire.",
+author:"— Fabrizio Porro, Como, 23 febbraio 2026"},
+
+{title:"Corso Mindfulness per traders gen-feb 2026",
+text:"Concluso stasera il corso mindfulness per traders, e come tutte le iniziative di Antonio, dei momenti di grande valore formativo ed umano. Un'occasione per riflettere sui molti meccanismi che possono indurre a comportamenti dannosi nel trading, ma anche una formazione per un approccio più consapevole agli eventi della vita.",
+author:"— Fabrizio Porro, 25 febbraio 2026"},
+
+{title:"Corso Mindfulness per traders gen-feb 2026",
+text:"Abituati come siamo ad avere risposte in breve tempo su qualsiasi cosa, pensiamo che anche la meditazione si possa imparare in poco tempo. O che basti un corso di cinque incontri per aver capito tutto. Non è così. Serve tanto allenamento e tanta sperimentazione. Ma i risultati, anche se sottili, si cominciano a vedere da subito e ti incentivano a proseguire nel percorso di crescita. Questo corso è la base di partenza di questo percorso.",
+author:"— Claudio Guerrini, Macerata, 27 febbraio 2026"},
+
+{title:"Corso Mindfulness per traders, Telegram",
+text:"Conosco Antonio da molto tempo prima per il trading e in seguito per la mindfulness. Nel corso degli anni ho partecipato a diversi corsi di mindfulness sia online che in presenza. Castagnola è un piccolo angolo di pace sospeso nel tempo immerso in una natura incontaminata. Seppur vicina a Genova e alla costa ligure, per la sua posizione nascosta in un anfiteatro naturale tra i boschi e le montagne dell'entroterra ligure, si presta davvero a meraviglia per ritiri meditativi e tutte quelle attività dove mettere al centro se stessi e la ricerca di un momento da dedicare alla nostra crescita personale o semplicemente ritrovare quell'equilibrio che la frenesia del lavoro e della vita di tutti i giorni tende ad alterare. Antonio è un maestro brillante e coinvolgente oltre che una persona molto simpatica con cui diventa facilmente piacevole conversare e trascorrere del tempo in compagnia di gruppi di persone stimolanti in cui si crea subito amicizia ed empatia. Tornerò sicuramente a frequentare i suoi corsi e soprattutto uno dei suoi ritiri!",
+author:"— Andrea Franzi, 26/02/26"}
+
 ];
 
+function renderBoard() {
+  const board = document.getElementById("guest-board");
 
-let current = 0;
+  commentsData.forEach((comment, index) => {
 
-function render() {
-  const currentPage = pages[current];
+    const card = document.createElement("div");
+    card.classList.add("guest-card");
 
-  for (let i = 0; i < 3; i++) {
-    // Selettori per sinistra e destra
-    const leftBox = document.getElementById(`left-comment${i+1}`);
-    const rightBox = document.getElementById(`right-comment${i+1}`);
+    card.innerHTML = `
+      <div class="polaroid-pin"></div>
+      <div class="guest-card-content">
+        <h4>${comment.title}</h4>
+        <p>${comment.text}</p>
+        <div class="guest-author">${comment.author}</div>
+      </div>
+    `;
 
-    // Gestione SINISTRA
-    if (currentPage.left && currentPage.left[i]) {
-      const data = currentPage.left[i];
-      leftBox.querySelector('h4').innerText = data.title || "";
-      leftBox.querySelector('p').innerText = data.text || "";
-      leftBox.querySelector('.author').innerText = data.author || "";
-      leftBox.style.display = "block"; // Mostra se c'è contenuto
-    } else {
-      leftBox.querySelector('h4').innerText = "";
-      leftBox.querySelector('p').innerText = "";
-      leftBox.querySelector('.author').innerText = "";
-      // Opzionale: leftBox.style.display = "none"; // Nasconde se vuoto
-    }
-
-    // Gestione DESTRA
-    if (currentPage.right && currentPage.right[i]) {
-      const data = currentPage.right[i];
-      rightBox.querySelector('h4').innerText = data.title || "";
-      rightBox.querySelector('p').innerText = data.text || "";
-      rightBox.querySelector('.author').innerText = data.author || "";
-      rightBox.style.display = "block";
-    } else {
-      rightBox.querySelector('h4').innerText = "";
-      rightBox.querySelector('p').innerText = "";
-      rightBox.querySelector('.author').innerText = "";
-      // Opzionale: rightBox.style.display = "none";
-    }
-  }
-  // Aggiorna l'indicatore di pagina
-  const indicator = document.getElementById("page-indicator");
-  if (indicator) {
-    indicator.innerText = `Pagina ${current + 1} di ${pages.length}`;
-  }
+    board.appendChild(card);
+  });
 }
 
-const rightPage = document.getElementById("right-page");
-
-function nextPage(){
-  rightPage.classList.add("flipping");
-  rightPage.style.transform = "rotateY(-15deg) scale(0.97)";
-  setTimeout(()=>{
-    current = (current + 1) % pages.length;
-    render();
-    rightPage.classList.remove("flipping");
-    rightPage.style.transform = "rotateY(0deg) scale(1)";
-  },600);
-}
-
-function prevPage(){
-  rightPage.classList.add("flipping");
-  rightPage.style.transform = "rotateY(-15deg) scale(0.97)";
-  setTimeout(()=>{
-    current = (current - 1 + pages.length) % pages.length;
-    render();
-    rightPage.classList.remove("flipping");
-    rightPage.style.transform = "rotateY(0deg) scale(1)";
-  },600);
-}
-
-render();
+renderBoard();
 </script>
 
 <script>
