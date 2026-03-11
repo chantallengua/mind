@@ -13102,3 +13102,59 @@ font-size: 0.85em !important;
 .btn {
   text-transform: none;
 }
+
+.ritiri-cards {
+  justify-content: flex-start;
+}
+
+.ritiri-card img {
+  height: 140px;
+  object-fit: cover;
+}
+
+.ritiri-card .card-body {
+  padding: 0.6rem;
+}
+
+.ritiri-card .card-text {
+  font-size: 0.9rem;
+}
+
+.ritiri-card {
+  height: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .ritiri-card {
+    max-width: 260px;
+  }
+}
+
+/* mobile */
+@media (max-width: 576px) {
+  .ritiri-card img {
+    height: 220px;
+  }
+}
+
+
+/* Testo sopra l'immagine */
+.donation-card-text {
+    font-size: 0.9rem; /* default desktop */
+    padding: 0.6rem;
+}
+
+/* Tablet: aumentiamo un po' il testo */
+@media (max-width: 991.98px) {
+    .donation-card-text {
+        font-size: 1.1rem;
+    }
+}
+
+/* Mobile: testo molto più grande */
+@media (max-width: 575.98px) {
+    .donation-card-text {
+        font-size: 1.2rem;
+    }
+}
